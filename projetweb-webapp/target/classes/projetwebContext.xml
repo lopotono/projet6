@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> -->
+	<!-- <property name="driverClassName" value="com.postgres.jdbc.Driver"/> -->
+	<!-- <property name="url" value="jdbc:postgres://localhost:5432/projetweb"/> -->
+	<!-- <property name="username" value="root"/> -->
+	<!-- <property name="password" value=""/> -->
+	<!-- </bean> -->
+
+	<bean id="dataSourceEscalade"
+		class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName"
+			value="java:comp/env/jdbc/DB_ESCALADE" />
+	</bean>
+
+	<bean id="abstractAction"
+		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="targetClass"
+			value="org.projet.escalade.webapp.action.AbstractAction" />
+		<property name="targetMethod" value="setManagerFactory" />
+		<property name="arguments" ref="managerFactory" />
+	</bean>
+</beans>
