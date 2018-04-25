@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="abstractManager" abstract="true">
+        <property name="daoFactory" ref="daoFactory" />
+    </bean>
+         
+   <bean id="secteurManager" class="org.projet.escalade.business.impl.SecteurManagerImpl" parent="abstractManager"/>
+   <bean id="sitesManager" class="org.projet.escalade.business.impl.SitesManagerImpl" parent="abstractManager"/>
+   <bean id="toposManager" class="org.projet.escalade.business.impl.ToposManagerImpl" parent="abstractManager"/>
+   <bean id="voieManager" class="org.projet.escalade.business.impl.VoieManagerImpl" parent="abstractManager"/>
+	
+    <bean id="managerFactory" class="org.projet.escalade.business.impl.ManagerFactoryImpl">
+        <property name="secteurManager" ref="secteurManager"/>
+        <property name="sitesManager" ref="sitesManager"/>
+        <property name="toposManager" ref="toposManager"/>
+        <property name="voieManager" ref="voieManager"/>
+    </bean>
+
+</beans>

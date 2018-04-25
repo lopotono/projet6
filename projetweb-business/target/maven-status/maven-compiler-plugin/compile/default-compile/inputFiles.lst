@@ -1,0 +1,14 @@
+/home/fred/Bureau/env/projetweb/projetweb-business/src/main/java/org/projet/escalade/business/impl/ResponsableManagerImpl.java
+/home/fred/Bureau/env/projetweb/projetweb-business/src/main/java/org/projet/escalade/business/contract/SecteurManager.java
+/home/fred/Bureau/env/projetweb/projetweb-business/src/main/java/org/projet/escalade/business/impl/ToposManagerImpl.java
+/home/fred/Bureau/env/projetweb/projetweb-business/src/main/java/org/projet/escalade/business/contract/ManagerFactory.java
+/home/fred/Bureau/env/projetweb/projetweb-business/src/main/java/org/projet/escalade/business/impl/SitesManagerImpl.java
+/home/fred/Bureau/env/projetweb/projetweb-business/src/main/java/org/projet/escalade/business/impl/AbstractManager.java
+/home/fred/Bureau/env/projetweb/projetweb-business/src/main/java/org/projet/escalade/business/contract/ResponsableManager.java
+/home/fred/Bureau/env/projetweb/projetweb-business/src/main/java/org/projet/escalade/business/impl/SecteurManagerImpl.java
+/home/fred/Bureau/env/projetweb/projetweb-business/src/main/java/org/projet/escalade/business/impl/VoieManagerImpl.java
+/home/fred/Bureau/env/projetweb/projetweb-business/src/main/java/org/projet/escalade/business/impl/ManagerFactoryImpl.java
+/home/fred/Bureau/env/projetweb/projetweb-business/src/main/java/org/projet/escalade/business/contract/VoieManager.java
+/home/fred/Bureau/env/projetweb/projetweb-business/src/main/java/org/projet/escalade/business/App.java
+/home/fred/Bureau/env/projetweb/projetweb-business/src/main/java/org/projet/escalade/business/contract/ToposManager.java
+/home/fred/Bureau/env/projetweb/projetweb-business/src/main/java/org/projet/escalade/business/contract/SitesManager.java

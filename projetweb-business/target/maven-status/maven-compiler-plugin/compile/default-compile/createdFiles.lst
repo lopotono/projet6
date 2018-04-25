@@ -1,0 +1,14 @@
+org/projet/escalade/business/impl/SitesManagerImpl.class
+org/projet/escalade/business/impl/VoieManagerImpl.class
+org/projet/escalade/business/contract/ResponsableManager.class
+org/projet/escalade/business/contract/SitesManager.class
+org/projet/escalade/business/impl/AbstractManager.class
+org/projet/escalade/business/impl/ToposManagerImpl.class
+org/projet/escalade/business/App.class
+org/projet/escalade/business/impl/ManagerFactoryImpl.class
+org/projet/escalade/business/impl/SecteurManagerImpl.class
+org/projet/escalade/business/contract/SecteurManager.class
+org/projet/escalade/business/impl/ResponsableManagerImpl.class
+org/projet/escalade/business/contract/VoieManager.class
+org/projet/escalade/business/contract/ManagerFactory.class
+org/projet/escalade/business/contract/ToposManager.class
