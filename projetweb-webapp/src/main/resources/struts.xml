@@ -24,13 +24,17 @@
                         
         <!-- Action listant les sites -->
         <action name="sites_list" 
-        		class="org.projet.escalade.webapp.action.ListeSitesAction" method="doList">
+        		class="org.projet.escalade.webapp.action.ListeSitesAction" method="doListSites">
         	<result>sites/list.jsp</result>
         </action>
         
-        <!-- Action affichant les voies -->
-        <action name="voie_list" class="org.projet.escalade.webapp.action.VoieAction" method="doList">
-        	<result>voie/list.jsp</result>
-        </action>                  
+        <!-- Actions Login/Logout -->
+        <action name="login" class="org.projet.escalade.webapp.action.LoginAction" method="doLogin">
+        	<result name="input">login.jsp</result>
+        	<result name="success" type="redirectAction">index.jsp</result>
+        </action>
+        <action name="logout" class="org.projet.escalade.webapp.action.LoginAction" method="doLogout">
+        	<result type="redirectAction">index.jsp</result>
+        </action>                       
     </package>
 </struts>
