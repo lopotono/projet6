@@ -12,13 +12,13 @@
    <bean id="secteurManager" class="org.projet.escalade.business.impl.SecteurManagerImpl" parent="abstractManager"/>
    <bean id="sitesManager" class="org.projet.escalade.business.impl.SitesManagerImpl" parent="abstractManager"/>
    <bean id="toposManager" class="org.projet.escalade.business.impl.ToposManagerImpl" parent="abstractManager"/>
-   <bean id="voieManager" class="org.projet.escalade.business.impl.VoieManagerImpl" parent="abstractManager"/>
+   <bean id="userManager" class="org.projet.escalade.business.impl.UserManagerImpl" parent="abstractManager"/>
 	
     <bean id="managerFactory" class="org.projet.escalade.business.impl.ManagerFactoryImpl">
         <property name="secteurManager" ref="secteurManager"/>
         <property name="sitesManager" ref="sitesManager"/>
         <property name="toposManager" ref="toposManager"/>
-        <property name="voieManager" ref="voieManager"/>
+        <property name="userManager" ref="userManager"/>
     </bean>
 
 </beans>
