@@ -12,11 +12,16 @@
  
     <bean id="secteurDao" class="org.projet.escalade.consumer.impl.SecteurDAOImpl" parent="abstractDao"/>
     <bean id="topoDao" class="org.projet.escalade.consumer.impl.TopoDAOImpl" parent="abstractDao"/>
-    <bean id="voieDao" class="org.projet.escalade.consumer.impl.VoieDAOImpl" parent="abstractDao"/>
+    <bean id="SitesDao" class="org.projet.escalade.consumer.impl.SitesDAOImpl" parent="abstractDao"/>
+    <bean id="UserDao" class="org.projet.escalade.Consumer.impl.userDAOImpl" parent="abstractDao"/>
+    <bean id="CommentaireDao" class="org.projet.escalade.consumer.impl.commentaireDAOImpl" parent="abstractDao"/>
+
 
     <bean id="daoFactory" class="org.projet.escalade.consumer.impl.DaoFactoryImpl">
         <property name="secteurDao" ref="secteurDao"/>
         <property name="topoDao" ref="topoDao"/>
-        <property name="voieDao" ref="voieDao"/>
+        <property name="sitesDao" ref="sitesDao"/>
+        <property name="userDao" ref="userDao"/>
+        <property name="commentaireDao" ref="commentaireDao"/>
     </bean>
 </beans>

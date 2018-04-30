@@ -9,6 +9,7 @@ import org.projet.escalade.model.User;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
+
 public class UserDAOImpl extends AbstractDAO implements UserDAO {
 	
 	public List<User> getUser() {

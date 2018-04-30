@@ -1,17 +1,19 @@
 package org.projet.escalade.consumer.impl;
 
+import org.projet.escalade.consumer.contract.CommentaireDAO;
 import org.projet.escalade.consumer.contract.DaoFactory;
 import org.projet.escalade.consumer.contract.SecteurDAO;
 import org.projet.escalade.consumer.contract.SitesDAO;
 import org.projet.escalade.consumer.contract.TopoDAO;
-import org.projet.escalade.consumer.contract.VoieDAO;
+import org.projet.escalade.consumer.contract.UserDAO;
 
 public class DaoFactoryImpl implements DaoFactory {
 	
     private TopoDAO topoDao;
-    private VoieDAO voieDao;
     private SecteurDAO secteurDao;
     private SitesDAO sitesDao;
+    private UserDAO userDao;
+    private CommentaireDAO commentaireDAO;
  
     
     public TopoDAO getTopoDao() {
@@ -20,14 +22,6 @@ public class DaoFactoryImpl implements DaoFactory {
     
     public void setTopoDao(TopoDAO topoDao) {
 		this.topoDao = topoDao;
-	}
-
-	public VoieDAO getVoieDao() {
-		return voieDao;
-	}
-	
-	public void setVoieDao(VoieDAO voieDAO) {
-		this.voieDao = voieDAO;
 	}
 
 	public SecteurDAO getSecteurDao() {
@@ -44,5 +38,21 @@ public class DaoFactoryImpl implements DaoFactory {
 	
 	public void setSitesDAO(SitesDAO sitesDAO) {
 		this.sitesDao = sitesDAO;
+	}
+
+	public UserDAO getUserDao() {
+		return userDao;
+	}
+
+	public void setUserDao(UserDAO userDao) {
+		this.userDao = userDao;
+	}
+
+	public CommentaireDAO getCommentaireDao() {
+		return commentaireDAO;
+	}
+	
+	public void setCommentaireDAO(CommentaireDAO commentaireDAO) {
+		this.commentaireDAO = commentaireDAO;
 	}
 }
