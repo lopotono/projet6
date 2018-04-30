@@ -7,6 +7,8 @@ public interface ManagerFactory {
 	SitesManager getSitesManager();
 
 	SecteurManager getSecteurManager();
-
-	VoieManager getVoieManager();
+	
+	UserManager getUserManager();
+	
+	CommentaireManager getCommentaireManager();
 }

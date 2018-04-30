@@ -9,12 +9,10 @@ import org.projet.escalade.model.exception.NotFoundException;
 public class SecteurManagerImpl extends AbstractManager implements SecteurManager{
 
 	public List<Secteur> getListSecteur() {
-		// TODO Auto-generated method stub
-		return null;
+		return getDaoFactory().getSecteurDao().getSecteur();
 	}
 
 	public Secteur getSecteur(Integer pID) throws NotFoundException {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

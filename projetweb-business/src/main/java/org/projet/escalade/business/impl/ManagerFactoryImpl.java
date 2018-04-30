@@ -1,10 +1,6 @@
 package org.projet.escalade.business.impl;
 
-import org.projet.escalade.business.contract.ManagerFactory;
-import org.projet.escalade.business.contract.SecteurManager;
-import org.projet.escalade.business.contract.SitesManager;
-import org.projet.escalade.business.contract.ToposManager;
-import org.projet.escalade.business.contract.VoieManager;
+import org.projet.escalade.business.contract.*;
 
 public class ManagerFactoryImpl implements ManagerFactory {
 
@@ -32,11 +28,19 @@ public class ManagerFactoryImpl implements ManagerFactory {
     	this.secteurManager = secteurManager;
     }
 	
-	private VoieManager voieManager;
-	public VoieManager getVoieManager() {
-		return voieManager;
+	private UserManager userManager;
+	public UserManager getUserManager() {
+		return this.userManager;
 	}
-	public void setVoieManager(VoieManager voieManager) {
-    	this.voieManager = voieManager;
-    }	
+	public void setUserManager(UserManager userManager) {
+		this.userManager = userManager;
+	}
+	
+	private CommentaireManager commentaireManager;
+	public CommentaireManager getCommentaireManager() {
+		return this.commentaireManager;
+	}
+	public void setCommentaireManager(CommentaireManager commentaireManager) {
+		this.commentaireManager = commentaireManager;
+	}			
 }
