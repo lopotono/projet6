@@ -3,7 +3,6 @@ package org.projet.escalade.webapp.action;
 import java.util.List;
 
 import org.projet.escalade.model.Sites;
-import org.projet.escalade.webapp.action.AbstractAction;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -14,31 +13,19 @@ public class ListeSitesAction extends AbstractAction {
 	 */
 	private static final long serialVersionUID = -7227990153624180024L;
 
-	// ======= Attributs =========
-    // ------- Paramètres en entrée
-    private Integer id;
+	private String listSites;
 
-    // ------- Eléments en sortie
-    private List<Sites> listSites;
-    private Sites sites;
+	public String getListSites() {
+		return listSites;
+	}
 
-    // ======= Getters/Setters =======
-    public Integer getId() {
-        return id;
-    }
-    public void setId(Integer id) {
-        this.id = id;
-    }
-    public List<Sites> getListSites() {
-        return listSites;
-    }
-    public Sites getSites() {
-        return sites;
-    }
-    
-    // ======== Méthodes ========
-    public String doList() {
-    	listSites = AbstractAction.getManagerFactory().getSitesManager().getListSites();
-    	return ActionSupport.SUCCESS;
-    }
+	public void setListSites(String list) {
+		this.listSites = list;
+	}
+
+	public String execute() {
+		List<Sites> list = getManagerFactory().getSitesManager().getListSites();
+		setListSites(list.get(0).getSitesname());
+		return ActionSupport.SUCCESS;
+	}
 }

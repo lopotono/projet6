@@ -8,6 +8,7 @@
 </head>
 
 <body>
+	<%@ include file="./_include/header.jsp" %>
 <h2>Hello World!</h2>
 	<ul>
 		<li>  
@@ -17,8 +18,11 @@
 			<s:a action="sites_list">Liste des sites</s:a>
 		</li>
 		<li>
-			<s:a action="voie_list">Liste des voies</s:a>
+			<s:a action="user_list">Liste des utilisateur</s:a>
 		</li>
+		<li>
+			<s:a action="secteur_list">Liste des secteurs</s:a>
+		</li>		
 	</ul>	
 </body>
 </html>

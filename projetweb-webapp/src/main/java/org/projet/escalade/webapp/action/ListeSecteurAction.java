@@ -39,7 +39,7 @@ public class ListeSecteurAction extends AbstractAction {
     }
     
     // ======= Méthodes =======
-    public String doList() {
+    public String doListSecteur() {
     	listSecteur = AbstractAction.getManagerFactory().getSecteurManager().getListSecteur();
     	return ActionSupport.SUCCESS;
     }

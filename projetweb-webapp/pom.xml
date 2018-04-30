@@ -1,78 +1,58 @@
 <?xml version="1.0"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <artifactId>projetweb</artifactId>
-    <groupId>org.projet.escalade</groupId>
-    <version>1.0-SNAPSHOT</version>
-  </parent>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>projetweb</artifactId>
+		<groupId>org.projet.escalade</groupId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
 
-  <artifactId>projetweb-webapp</artifactId>
-  <packaging>war</packaging>
-  <name>projetweb-webapp Maven Webapp</name>
-  <url>http://www.example.com</url>
+	<artifactId>projetweb-webapp</artifactId>
+	<packaging>war</packaging>
+	<name>projetweb-webapp Maven Webapp</name>
+	<url>http://www.example.com</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
-  </properties>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 
-  <dependencies>
-  		<!-- ===== Modules ===== -->
-        <dependency>
-            <groupId>org.projet.escalade</groupId>
-            <artifactId>projetweb-business</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.projet.escalade</groupId>
-            <artifactId>projetweb-model</artifactId>
-        </dependency>
-        
-        <dependency>
+	<dependencies>
+		<!-- ===== Modules ===== -->
+		<dependency>
+			<groupId>org.projet.escalade</groupId>
+			<artifactId>projetweb-model</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.projet.escalade</groupId>
+			<artifactId>projetweb-business</artifactId>
+		</dependency>
+
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
-			</dependency>
-		
+		</dependency>
+
 		<dependency>
-          <groupId>org.springframework</groupId>
-          <artifactId>spring-struts</artifactId>
-          <version>2.0.8</version>
-      </dependency>
-		       
-        <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-        </dependency>
-        
-        <!-- <dependency>
-            <groupId>org.apache.bval</groupId>
-            <artifactId>bval-jsr</artifactId>
-        </dependency> -->
-        
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-        </dependency> 
-            
-            <dependency>
-                <groupId>org.postgresql</groupId>
-                <artifactId>postgresql</artifactId>               
-            </dependency>
-            
-             <!-- Framework Apache Struts -->
-      <dependency>
-          <groupId>org.javassist</groupId>
-          <artifactId>javassist</artifactId>
-          <version>3.20.0-GA</version>
-      </dependency>
-      <dependency>
-          <groupId>org.apache.struts</groupId>
-          <artifactId>struts2-core</artifactId>
-          </dependency>
-  </dependencies>
-  <build>
-    <finalName>projetweb-webapp</finalName>
-  </build>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-struts</artifactId>
+			<version>2.0.8</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+		</dependency>
+
+		<!-- Framework Apache Struts -->
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-core</artifactId>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>projetweb-webapp</finalName>
+	</build>
 </project>
