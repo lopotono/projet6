@@ -7,4 +7,6 @@ import org.projet.escalade.model.Commentaire;
 public interface CommentaireDAO {
 	
 	public List<Commentaire> getCommentaire();
+	
+	public void addCommentaire(Commentaire commentaire);
 }
