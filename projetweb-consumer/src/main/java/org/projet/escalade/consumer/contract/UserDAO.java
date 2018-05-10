@@ -7,4 +7,9 @@ import org.projet.escalade.model.User;
 public interface UserDAO {
 
 	public List<User> getUser();
+	
+	void creer(User user);
+	
+	User trouver(String username);
 }
+
