@@ -22,6 +22,10 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
 				User vUser = new User();
 				vUser.setUsername(pRS.getString("nom_user"));
 				vUser.setUserprenom(pRS.getString("prenom_user"));
+				vUser.setUsermail(pRS.getString("mail_user"));
+				vUser.setUseradresse(pRS.getString("adresse"));
+				vUser.setUsercodepostal(pRS.getInt("code_postal"));
+				vUser.setUserville(pRS.getString("ville"));
 				return vUser;
 			}
 		};
@@ -29,4 +33,15 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
 		
 		return vListUser;
 	}
+
+	public void creer(User user) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public User trouver(String username) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
+
