@@ -31,8 +31,8 @@
 
 		<!-- Action ajouter topo -->
 		<action name="topos_new"
-			class="org.projet.escalade.webapp.action.ListeToposAction"
-			method="ajouter">
+			class="org.projet.escalade.webapp.action.AjoutTopoAction"
+			method="doCreate">
 
 			<interceptor-ref name="store">
 				<param name="operationMode">STORE</param>
@@ -42,14 +42,15 @@
 
 			<result name="input">topos/new.jsp</result>
 			<result name="success" type="redirectAction">
-				<param name="listTopos">topos_list</param>
+				<param name="actionName">topos_new</param>
+				<param name="id">${topos.id}</param>
 			</result>
 		</action>
 
 		<!-- Action listant les sites -->
 		<action name="sites_list"
 			class="org.projet.escalade.webapp.action.ListeSitesAction"
-			method="execute">
+			method="doList">
 			<result>sites/list.jsp</result>
 		</action>
 
@@ -58,29 +59,40 @@
 			class="org.projet.escalade.webapp.action.LoginAction"
 			method="doLogin">
 			<result name="input">login.jsp</result>
-			<result name="success" type="redirectAction">index.jsp</result>
+			<result name="success" type="redirectAction">index</result>
 		</action>
 		<action name="logout"
 			class="org.projet.escalade.webapp.action.LoginAction"
 			method="doLogout">
-			<result type="redirectAction">index.jsp</result>
+			<result type="redirectAction">index</result>
 		</action>
-		
+
 		<!-- Action listant les utilisateurs -->
 		<action name="user_list"
 			class="org.projet.escalade.webapp.action.ListeUserAction"
 			method="doListUser">
 			<result>user/list.jsp</result>
 		</action>
-		
+
 		<!-- Action listant les secteurs -->
-		<action name="secteur_list" class="org.projet.escalade.webapp.action.ListeSecteurAction" method="doListSecteur">
-			<result>secteur/list.jsp</result>
+		<action name="secteur_list"
+			class="org.projet.escalade.webapp.action.ListeSecteurAction"
+			method="doListSecteur">
+			<result>secteur/secteur.jsp</result>
 		</action>
-		
+
 		<!-- Action créer les messages -->
-		<action name="commentaire" class="org.projet.escalade.webapp.action.CommentaireAction" method="doCommentaire">
+		<action name="commentaire"
+			class="org.projet.escalade.webapp.action.CommentaireAction"
+			method="doCommentaire">
 			<result>commentaire/detail.jsp</result>
+		</action>
+
+		<!-- Action listant les voies -->
+		<action name="voie_list"
+			class="org.projet.escalade.webapp.action.ListeVoieAction"
+			method="doListVoie">
+			<result>voie/list.jsp</result>
 		</action>
 	</package>
 </struts>
