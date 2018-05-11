@@ -18,10 +18,17 @@
 			<s:a action="sites_list">Liste des sites</s:a>
 		</li>
 		<li>
-			<s:a action="user_list">Liste des utilisateur</s:a>
+			<s:a action="user_list">Liste des utilisateurs</s:a>
 		</li>
 		<li>
 			<s:a action="secteur_list">Liste des secteurs</s:a>
+		</li>
+		<li>
+			<s:a action="voie_list">Liste des voies</s:a>
+		</li>
+		<br />
+		<li>
+			<s:a action="form_new">Formulaire d'inscription</s:a>
 		</li>		
 	</ul>	
 </body>
