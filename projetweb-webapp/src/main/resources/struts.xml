@@ -81,18 +81,18 @@
 			<result>secteur/secteur.jsp</result>
 		</action>
 
-		<!-- Action créer les messages -->
-		<action name="commentaire"
-			class="org.projet.escalade.webapp.action.CommentaireAction"
-			method="doCommentaire">
-			<result>commentaire/detail.jsp</result>
-		</action>
-
 		<!-- Action listant les voies -->
 		<action name="voie_list"
 			class="org.projet.escalade.webapp.action.ListeVoieAction"
 			method="doListVoie">
 			<result>voie/list.jsp</result>
+		</action>
+
+		<!-- Action formulaire -->
+		<action name="form_new"
+			class="org.projet.escalade.webapp.action.FormulaireAction"
+			method="doForm">
+			<result>form/formulaire.jsp</result>
 		</action>
 	</package>
 </struts>
