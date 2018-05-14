@@ -7,4 +7,6 @@ import org.projet.escalade.model.Sites;
 public interface SitesManager {
 
 	List<Sites> getListSites();
+	
+	Sites getSite(int id);
 }
