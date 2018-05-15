@@ -1,32 +1,37 @@
 package org.projet.escalade.consumer.impl;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 import org.projet.escalade.consumer.contract.SecteurDAO;
+import org.projet.escalade.consumer.impl.rawmapper.SecteurRawMapper;
 import org.projet.escalade.model.Secteur;
+import org.projet.escalade.model.Sites;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 
-public class SecteurDAOImpl extends AbstractDAO implements SecteurDAO{
-	
+public class SecteurDAOImpl extends AbstractDAO implements SecteurDAO {
+
+	public SecteurDAOImpl() {
+		setJdbcTemplate(new JdbcTemplate(getDataSource()));
+	}
+
 	public List<Secteur> getSecteur() {
 		String vSQL = "SELECT * FROM secteur";
-		
-		JdbcTemplate vJdbcTemplate = new JdbcTemplate(getDataSource());
-		
-		RowMapper<Secteur> vRowMapper = new RowMapper<Secteur>() {
-			public Secteur mapRow(ResultSet pRS, int pRowNum) throws SQLException {
-				Secteur vSecteur = new Secteur();
-				vSecteur.setSecteurid(pRS.getInt("id_secteur"));
-				vSecteur.setSecteurname(pRS.getString("nom_secteur"));
-				return vSecteur;
-			}		
-		};
-		
-		List<Secteur> vListSecteur = vJdbcTemplate.query(vSQL, vRowMapper);
 
-        return vListSecteur;		
+		SecteurRawMapper vRowMapper = new SecteurRawMapper();
+
+		List<Secteur> vListSecteur = getJdbcTemplate().query(vSQL, vRowMapper);
+
+		return vListSecteur;
+	}
+
+	public List<Secteur> getSecteurBySite(Sites vSite) {
+
+		String vSQL = "SELECT * FROM secteur WHERE id_site_escalade="+vSite.getSitesid();
+		
+		SecteurRawMapper vRowMapper = new SecteurRawMapper();
+		
+		List<Secteur> vListSecteur = getJdbcTemplate().query(vSQL, vRowMapper);
+		
+		return vListSecteur;	
 	}
 }
