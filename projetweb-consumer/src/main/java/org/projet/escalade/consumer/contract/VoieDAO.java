@@ -2,7 +2,7 @@ package org.projet.escalade.consumer.contract;
 
 import java.util.List;
 
-import org.projet.escalade.model.Sites;
+import org.projet.escalade.model.Secteur;
 import org.projet.escalade.model.Voie;
 
 public interface VoieDAO {
@@ -11,5 +11,5 @@ public interface VoieDAO {
 
 	Voie getVoie(int id);
 
-	List<Voie> getVoieBySite(Sites vSite);	
+	List<Voie> getVoieBySecteur(Secteur vSecteur);	
 }
