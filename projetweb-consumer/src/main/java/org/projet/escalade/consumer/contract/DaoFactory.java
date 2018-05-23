@@ -6,5 +6,6 @@ public interface DaoFactory {
     public SecteurDAO getSecteurDao();
     public SitesDAO getSitesDao();
 	public UserDAO getUserDao();
-	public CommentaireDAO getCommentaireDao();
+	public VoieDAO getVoieDao();
+	public LongueurDAO getLongueurDao();
 }
