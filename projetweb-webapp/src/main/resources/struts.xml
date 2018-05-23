@@ -101,19 +101,24 @@
 			method="doForm">
 			<result>form/formulaire.jsp</result>
 		</action>
-		
+
 		<!-- Action site unitaire -->
 		<action name="site"
-			class="org.projet.escalade.webapp.action.SiteAction"
-			method="execute">
+			class="org.projet.escalade.webapp.action.SiteAction" method="execute">
 			<result>sites/site.jsp</result>
-			</action>
-			
+		</action>
+
 		<!-- Action voie unitaire -->
 		<action name="voie"
-			class="org.projet.escalade.webapp.action.VoieAction"
-			method="execute">
+			class="org.projet.escalade.webapp.action.VoieAction" method="execute">
 			<result>voie/voie.jsp</result>
+		</action>
+
+		<!-- Action longueur unitaire -->
+		<action name="longueur"
+			class="org.projet.escalade.webapp.action.LongueurAction"
+			method="execute">
+			<result>longueur/longueur.jsp</result>
 		</action>
 	</package>
 </struts>
