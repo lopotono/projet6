@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.projet.escalade.model.Voie;
 
-public interface VoieManager {	
-
+public interface VoieManager {
+	
 	List<Voie> getListVoie();
+
+	Voie getVoie(int id);
 }
