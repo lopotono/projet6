@@ -5,23 +5,29 @@
             http://www.springframework.org/schema/beans
             http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSourceEscalade"/>
+	</bean>
 
     <bean id="abstractDao" abstract="true">
         <property name="dataSource" ref="dataSourceEscalade"/>
+        <property name="jdbcTemplate" ref="jdbcTemplate"></property>
     </bean>
- 
- 	<bean id="commentaireDao" class="org.projet.escalade.consumer.impl.CommentaireDAOImpl" parent="abstractDao" />
+  
     <bean id="secteurDao" class="org.projet.escalade.consumer.impl.SecteurDAOImpl" parent="abstractDao" />
     <bean id="topoDao" class="org.projet.escalade.consumer.impl.TopoDAOImpl" parent="abstractDao" />
     <bean id="sitesDao" class="org.projet.escalade.consumer.impl.SitesDAOImpl" parent="abstractDao" />
     <bean id="userDao" class="org.projet.escalade.consumer.impl.UserDAOImpl" parent="abstractDao" />
+    <bean id="voieDao" class="org.projet.escalade.consumer.impl.VoieDAOImpl" parent="abstractDao"/>
+    <bean id="longueurDao" class="org.projet.escalade.consumer.impl.LongueurDAOImpl" parent="abstractDao"/>
     
     
     <bean id="daoFactory" class="org.projet.escalade.consumer.impl.DaoFactoryImpl">
-    	<property name="commentaireDao" ref="commentaireDao"/>
         <property name="secteurDao" ref="secteurDao"/>
         <property name="topoDao" ref="topoDao"/>
         <property name="sitesDao" ref="sitesDao"/>
-        <property name="userDao" ref="userDao"/>       
+        <property name="userDao" ref="userDao"/>
+        <property name="voieDao" ref="voieDao"/>
+        <property name="longueurDao" ref="longueurDao"/>       
     </bean>
 </beans>
