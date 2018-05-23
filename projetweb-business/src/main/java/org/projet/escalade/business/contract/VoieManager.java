@@ -2,7 +2,7 @@ package org.projet.escalade.business.contract;
 
 import java.util.List;
 
-import org.projet.escalade.model.Sites;
+import org.projet.escalade.model.Secteur;
 import org.projet.escalade.model.Voie;
 
 public interface VoieManager {
@@ -11,5 +11,5 @@ public interface VoieManager {
 
 	Voie getVoie(int id);
 	
-	List<Voie> getVoieBySite(Sites vSite);
+	List<Voie> getVoieBySecteur(Secteur vSecteur);
 }
