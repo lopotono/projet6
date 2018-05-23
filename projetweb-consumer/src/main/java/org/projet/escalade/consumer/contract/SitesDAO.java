@@ -6,5 +6,8 @@ import org.projet.escalade.model.Sites;
 
 public interface SitesDAO {
 	
-	public List<Sites> getSites();
+	List<Sites> getSites();
+	
+	Sites getSite(int id);
 }
+
