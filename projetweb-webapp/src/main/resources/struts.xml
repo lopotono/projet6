@@ -81,6 +81,13 @@
 			<result>secteur/secteur.jsp</result>
 		</action>
 
+		<!-- Action listant les secteurs par site -->
+		<action name="secteur_detail"
+			class="org.projet.escalade.webapp.action.ListeSecteurAction"
+			method="doListSecteurSite">
+			<result>secteur/sitesecteur.jsp</result>
+		</action>
+
 		<!-- Action listant les voies -->
 		<action name="voie_list"
 			class="org.projet.escalade.webapp.action.ListeVoieAction"
@@ -93,6 +100,20 @@
 			class="org.projet.escalade.webapp.action.FormulaireAction"
 			method="doForm">
 			<result>form/formulaire.jsp</result>
+		</action>
+		
+		<!-- Action site unitaire -->
+		<action name="site"
+			class="org.projet.escalade.webapp.action.SiteAction"
+			method="execute">
+			<result>sites/site.jsp</result>
+			</action>
+			
+		<!-- Action voie unitaire -->
+		<action name="voie"
+			class="org.projet.escalade.webapp.action.VoieAction"
+			method="execute">
+			<result>voie/voie.jsp</result>
 		</action>
 	</package>
 </struts>
