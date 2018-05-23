@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.projet.escalade.consumer.contract.VoieDAO;
 import org.projet.escalade.consumer.impl.rawmapper.VoieRawMapper;
-import org.projet.escalade.model.Sites;
+import org.projet.escalade.model.Secteur;
 import org.projet.escalade.model.Voie;
 
 public class VoieDAOImpl extends AbstractDAO implements VoieDAO {
@@ -33,9 +33,9 @@ public class VoieDAOImpl extends AbstractDAO implements VoieDAO {
 		return vListVoie.get(0);
 	}
 	
-	public List<Voie> getVoieBySite(Sites vSite) {
+	public List<Voie> getVoieBySecteur(Secteur vSecteur) {
 		
-		String vSQL = "SELECT * FROM voie WHERE id_site_escalade="+vSite.getSitesid();
+		String vSQL = "SELECT * FROM voie WHERE id_secteur="+vSecteur.getSecteurid();
 		
 		VoieRawMapper vRowMapper = new VoieRawMapper();
 		
