@@ -20,6 +20,7 @@
     <bean id="userDao" class="org.projet.escalade.consumer.impl.UserDAOImpl" parent="abstractDao" />
     <bean id="voieDao" class="org.projet.escalade.consumer.impl.VoieDAOImpl" parent="abstractDao"/>
     <bean id="longueurDao" class="org.projet.escalade.consumer.impl.LongueurDAOImpl" parent="abstractDao"/>
+    <bean id="pointsDao" class="org.projet.escalade.consumer.impl.PointsDAOImpl" parent="abstractDao"/>
     
     
     <bean id="daoFactory" class="org.projet.escalade.consumer.impl.DaoFactoryImpl">
@@ -28,6 +29,7 @@
         <property name="sitesDao" ref="sitesDao"/>
         <property name="userDao" ref="userDao"/>
         <property name="voieDao" ref="voieDao"/>
-        <property name="longueurDao" ref="longueurDao"/>       
+        <property name="longueurDao" ref="longueurDao"/>
+        <property name="pointsDao" ref="pointsDao"/>       
     </bean>
 </beans>
