@@ -15,6 +15,7 @@
    <bean id="userManager" class="org.projet.escalade.business.impl.UserManagerImpl" parent="abstractManager"/>
    <bean id="voieManager" class="org.projet.escalade.business.impl.VoieManagerImpl" parent="abstractManager"/>
    <bean id="longueurManager" class="org.projet.escalade.business.impl.LongueurManagerImpl" parent="abstractManager"/>
+   <bean id="pointsManager" class="org.projet.escalade.business.impl.PointsManagerImpl" parent="abstractManager"/>
 	
     <bean id="managerFactory" class="org.projet.escalade.business.impl.ManagerFactoryImpl">
         <property name="secteurManager" ref="secteurManager"/>
@@ -23,6 +24,7 @@
         <property name="userManager" ref="userManager"/>
         <property name="voieManager" ref="voieManager"/>
         <property name="longueurManager" ref="longueurManager"/>
+        <property name="pointsManager" ref="pointsManager"/>
     </bean>
 
 </beans>
