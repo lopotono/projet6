@@ -9,10 +9,14 @@
 </head>
 <body>
 	<h2>Liste des sites</h2>
-	<ul>
-		<s:iterator value="listSites">
-			<li><s:property value="sitesname" /></li>
-		</s:iterator>
-	</ul>
+
+	<s:iterator value="listSites">
+		<ul>
+			<s:a action="site.action">
+				<li><result> <s:property value="sitesname" />
+					<s:param name="id" value="sitesid" /></result></li>
+			</s:a>
+		</ul>
+	</s:iterator>
 </body>
 </html>

@@ -8,11 +8,32 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<s:property value="site.sitesname" />
-	
+	Site : <s:property value="site.sitesname" />
+	<br />
+	Liste des secteurs :
 	<ul>
 		<s:iterator value="site.secteurs">			
-			<li><s:property value="secteurname" /></li>
+			<li>Secteur : <s:property value="secteurname" /></li>
+			<br />
+			<ul>
+				<s:iterator value="voie">
+					<li>Voie id : <s:property value="id"/></li>
+					<li>Hauteur de voie : <s:property value="voiehauteur"/>
+					<li>Cotation de voie : <s:property value="voienumerocotation"/>
+				</s:iterator>
+			</ul>
+			<ul>
+				<s:iterator value="longueur">
+					<li>Longueur id : <s:property value="id"/></li>
+					<li>Nombre de longueur : <s:property value="longueurnombre"/></li>
+				</s:iterator>
+			</ul>
+			<ul>
+				<s:iterator value="points">
+					<li>Points id : <s:property value="id"/></li>
+					<li>Nombre de points : <s:property value="pointsnombre"/></li>
+				</s:iterator>
+			</ul>
 		</s:iterator>
 	</ul>
 </body>
