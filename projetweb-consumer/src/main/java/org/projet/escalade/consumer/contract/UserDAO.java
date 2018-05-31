@@ -6,7 +6,7 @@ import org.projet.escalade.model.User;
 
 public interface UserDAO {
 
-	public List<User> getUser();
+	List<User> getUser();
 	
 	void creer(User user);
 	

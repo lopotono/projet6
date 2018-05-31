@@ -14,6 +14,7 @@ public class VoieDAOImpl extends AbstractDAO implements VoieDAO {
 	}
 
 	public List<Voie> getVoie() {
+		
 		String vSQL = "SELECT * FROM voie";		
 		
 		VoieRawMapper vRowMapper = new VoieRawMapper();
@@ -24,23 +25,24 @@ public class VoieDAOImpl extends AbstractDAO implements VoieDAO {
 	}
 
 	public Voie getVoie(int id) {
+		
 		String vSQL = "SELECT * FROM voie WHERE id_voie="+id;
 		
 		VoieRawMapper vRowMapper = new VoieRawMapper();
 		
 		List<Voie> vListVoie = getJdbcTemplate().query(vSQL, vRowMapper);
 		
-		return vListVoie.get(0);
+		return vListVoie.get(0);		
 	}
-	
+
 	public List<Voie> getVoieBySecteur(Secteur vSecteur) {
 		
-		String vSQL = "SELECT * FROM voie WHERE id_secteur="+vSecteur.getSecteurid();
-		
+		String vSQL = "SELECT * FROM voie WHERE id_secteur=" + vSecteur.getSecteurid();
+		System.out.println(vSQL);	
 		VoieRawMapper vRowMapper = new VoieRawMapper();
 		
 		List<Voie> vListVoie = getJdbcTemplate().query(vSQL, vRowMapper);
-		
-		return vListVoie;		
+
+		return vListVoie;
 	}
 }

@@ -1,31 +1,60 @@
 package org.projet.escalade.consumer.impl;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 import org.projet.escalade.consumer.contract.TopoDAO;
+import org.projet.escalade.consumer.impl.rawmapper.TopoRawMapper;
+import org.projet.escalade.model.Sites;
 import org.projet.escalade.model.Topos;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
+import org.projet.escalade.model.User;
 
 public class TopoDAOImpl extends AbstractDAO implements TopoDAO {
 	
+	public TopoDAOImpl() {
+		
+	}
+	
 	public List<Topos> getTopos() {
+		
 		String vSQL = "SELECT * FROM topo";
-		
-		JdbcTemplate vJdbcTemplate = new JdbcTemplate(getDataSource());
-		
-		RowMapper<Topos> vRowMapper = new RowMapper<Topos>() {
-			public Topos mapRow(ResultSet pRS, int pRowNum) throws SQLException {
-				Topos vTopos = new Topos();
-				vTopos.setToposname(pRS.getString("nom_topo"));
-				vTopos.setTopodispo(pRS.getBoolean("topo_disponible"));
-				return vTopos;
-			}
-		};	
-		List<Topos> vListTopos= vJdbcTemplate.query(vSQL, vRowMapper);
+				
+		TopoRawMapper vRowMapper = new TopoRawMapper();
+						
+		List<Topos> vListTopos= getJdbcTemplate().query(vSQL, vRowMapper);
 		
 		return vListTopos;		
+	}
+
+	public Topos getTopos(int id) {
+		
+		String vSQL = "SELECT * FROM topo WHERE id_topo="+id;
+		
+		TopoRawMapper vRowMapper = new TopoRawMapper();
+		
+		List<Topos> vListTopos= getJdbcTemplate().query(vSQL, vRowMapper);
+				
+		return vListTopos.get(0);
+	}
+
+	public List<Topos> getToposBySite(Sites vSite) {
+		
+		String vSQL = "SELECT * FROM topo WHERE id_site_escalade=" + vSite.getSitesid();
+		System.out.println(vSQL);	
+		TopoRawMapper vRowMapper = new TopoRawMapper();
+		
+		List<Topos> vListTopos= getJdbcTemplate().query(vSQL, vRowMapper);
+		
+		return vListTopos;
+	}
+
+	public List<Topos> getToposByUser(User vUser) {
+		
+		String vSQL = "SELECT * FROM topo WHERE id_user=" + vUser.getId();
+		
+		TopoRawMapper vRowMapper = new TopoRawMapper();
+		
+		List<Topos> vListTopos= getJdbcTemplate().query(vSQL, vRowMapper);
+		
+		return vListTopos;
 	}				
 }

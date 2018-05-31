@@ -26,7 +26,7 @@ public class LongueurDAOImpl extends AbstractDAO implements LongueurDAO {
 	public List<Longueur> getLongueurByVoie(Voie vVoie) {
 		
 		String vSQL = "SELECT * FROM longueur WHERE id_voie="+vVoie.getId();
-		
+		System.out.println(vSQL);
 		LongueurRawMapper vRowMapper = new LongueurRawMapper();
 		
 		List<Longueur> vListLongueur = getJdbcTemplate().query(vSQL, vRowMapper);
@@ -35,7 +35,8 @@ public class LongueurDAOImpl extends AbstractDAO implements LongueurDAO {
 	}
 
 	public Longueur getLongueur(int id) {
-		String vSQL = "SELECT * FROM longueur WHERE id_voie="+id;
+		
+		String vSQL = "SELECT * FROM longueur WHERE id_longueur="+id;
 		
 		LongueurRawMapper vRowMapper = new LongueurRawMapper();
 		

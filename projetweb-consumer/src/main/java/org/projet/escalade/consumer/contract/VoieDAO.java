@@ -5,11 +5,11 @@ import java.util.List;
 import org.projet.escalade.model.Secteur;
 import org.projet.escalade.model.Voie;
 
-public interface VoieDAO {
-	
-	List<Voie> getVoie();
+public interface VoieDAO {	
 
 	Voie getVoie(int id);
 
-	List<Voie> getVoieBySecteur(Secteur vSecteur);	
+	List<Voie> getVoie();
+
+	List<Voie> getVoieBySecteur(Secteur vSecteur);
 }

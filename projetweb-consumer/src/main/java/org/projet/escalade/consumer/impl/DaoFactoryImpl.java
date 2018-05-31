@@ -2,6 +2,7 @@ package org.projet.escalade.consumer.impl;
 
 import org.projet.escalade.consumer.contract.DaoFactory;
 import org.projet.escalade.consumer.contract.LongueurDAO;
+import org.projet.escalade.consumer.contract.PointsDAO;
 import org.projet.escalade.consumer.contract.SecteurDAO;
 import org.projet.escalade.consumer.contract.SitesDAO;
 import org.projet.escalade.consumer.contract.TopoDAO;
@@ -16,6 +17,7 @@ public class DaoFactoryImpl implements DaoFactory {
 	private UserDAO userDao;
 	private VoieDAO voieDao;
 	private LongueurDAO longueurDao;
+	private PointsDAO pointsDao;
 	
 	public TopoDAO getTopoDao() {
 		return topoDao;
@@ -52,5 +54,11 @@ public class DaoFactoryImpl implements DaoFactory {
 	}
 	public void setLongueurDao(LongueurDAO longueurDao) {
 		this.longueurDao = longueurDao;
+	}
+	public PointsDAO getPointsDao() {
+		return pointsDao;
+	}
+	public void setPointsDao(PointsDAO pointsDao) {
+		this.pointsDao = pointsDao;
 	}
 }

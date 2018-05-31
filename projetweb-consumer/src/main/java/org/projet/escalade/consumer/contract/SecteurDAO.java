@@ -10,4 +10,6 @@ public interface SecteurDAO {
 	List<Secteur> getSecteur();
 
 	List<Secteur> getSecteurBySite(Sites vSite);
+
+	Secteur getSecteur(int id);
 }
