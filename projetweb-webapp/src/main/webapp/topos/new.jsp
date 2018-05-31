@@ -14,10 +14,15 @@
 
 	<h2>Ajout d'un topo</h2>
 
-	<s:form action="topos_new" method="post">
-		<s:textfield label="%{getText('data.toposname')}" name="topo.toposname" size="30"/>
-		<s:textfield label="%{getText('data.topodispo')}" name="topo.topodispo" size="10"/>
-		<s:textfield label="%{getText('data.username)}" name="topo.username" size="30"/>	
+	<s:form action="topos_new">
+		<s:textfield name="topos.nom" label="Nom" requiredLabel="true" />
+		<s:select name="topos.utilisateur.nom" label="Responsable"
+			list="listUser" listKey="nom" listValue="prenom" emptyOption="true"
+			requiredLabel="true" />
+		<s:checkbox name="topos.cloture" label="Cloturé" />
+		<s:submit value="OK" />
+		
+		<input type="submit" value="Emprunter topo" class="sansLabel" />
 	</s:form>
 </body>
 </html>

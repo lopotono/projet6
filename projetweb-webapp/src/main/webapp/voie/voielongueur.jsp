@@ -11,10 +11,10 @@
 		<s:property value="voie.voiehauteur" />
 		<s:property value="voie.voienumerocotation" />
 		<s:property value="voie.voienombrepoints" />
-	
-	<ul>
-		<s:iterator value="voie.secteurs">			
-			<li><s:property value="secteurname" /></li>
+		
+		<ul>
+		<s:iterator value="voie.longueur">			
+			<li><s:property value="longueurnombre" /></li>
 		</s:iterator>
 	</ul>
 </body>

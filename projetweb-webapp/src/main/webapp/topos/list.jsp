@@ -11,15 +11,13 @@
 <body>
 	<h2>Liste des topos</h2>
 
-	<s:actionmessage/>
-
-	<ul>
-		<s:iterator value="listTopos">		
-			<li>Nom : <s:property value="toposname" /> 
-			 Topo disponible : <s:property value="topodispo" />
-			 <s:a action="sites_list">Liste des sites</s:a>
-			</li>
-		</s:iterator>
-	</ul>
+	<s:iterator value="listTopos">
+		<ul>
+			<s:a action="topo.action">
+				<li><result> <s:property value="toposname" /> 
+				<s:param name="id" value="id" /></result></li>
+			</s:a>
+		</ul>
+	</s:iterator>
 </body>
 </html>

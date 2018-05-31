@@ -14,8 +14,8 @@
 	<h2>Connexion</h2>
 	
 	<s:form method="post" action="login">
-		<s:textfield name="login" label="Identifiant" requiredLabel="true" />
-		<s:password name="password" label="Mot de passe" requiredLabel="true" />
+		<s:textfield name="username" label="Identifiant" requiredLabel="true" />
+		<s:password name="usermotdepasse" label="Mot de passe" requiredLabel="true" />
 		
 		<s:submit value="Connexion" />
 	</s:form>

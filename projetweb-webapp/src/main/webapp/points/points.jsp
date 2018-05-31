@@ -8,13 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-		<s:property value="voie.voiehauteur" />
-		<s:property value="voie.voienumerocotation" />
-		<s:property value="voie.voienombrepoints" />
+	<s:property value="points.longueurnombre"/>
 	
 	<ul>
-		<s:iterator value="voie.secteurs">			
-			<li><s:property value="secteurname" /></li>
+		<s:iterator value="points.longueur">
+			<li><s:property value="longueurnombre" /></li>
 		</s:iterator>
 	</ul>
 </body>
