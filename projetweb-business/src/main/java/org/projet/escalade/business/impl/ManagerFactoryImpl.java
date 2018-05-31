@@ -35,12 +35,36 @@ public class ManagerFactoryImpl implements ManagerFactory {
 	public void setUserManager(UserManager userManager) {
 		this.userManager = userManager;
 	}
-	
-	private CommentaireManager commentaireManager;
-	public CommentaireManager getCommentaireManager() {
-		return this.commentaireManager;
+		
+	private AjouttopoManager ajouttopoManager;
+	public AjouttopoManager getAjouttopoManager() {
+		return this.ajouttopoManager;
 	}
-	public void setCommentaireManager(CommentaireManager commentaireManager) {
-		this.commentaireManager = commentaireManager;
-	}			
+	public void setAjouttopoManager(AjouttopoManager ajouttopoManager) {
+		this.ajouttopoManager = ajouttopoManager;
+	}
+	
+	private VoieManager voieManager;
+	public VoieManager getVoieManager() {
+		return this.voieManager;
+	}
+	public void setVoieManager(VoieManager voieManager) {
+		this.voieManager = voieManager;
+	}
+	
+	private LongueurManager longueurManager;
+	public LongueurManager getLongueurManager() {
+		return this.longueurManager;
+	}
+	public void setLongueurManager(LongueurManager longueurManager) {
+		this.longueurManager = longueurManager;
+	}
+	
+	private PointsManager pointsManager;
+	public PointsManager getPointsManager() {
+		return this.pointsManager;
+	}
+	public void setPointsManager(PointsManager pointsManager) {
+		this.pointsManager = pointsManager;
+	}	
 }

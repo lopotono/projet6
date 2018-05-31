@@ -4,7 +4,8 @@ import java.util.List;
 
 import org.projet.escalade.business.contract.SecteurManager;
 import org.projet.escalade.model.Secteur;
-import org.projet.escalade.model.exception.NotFoundException;
+import org.projet.escalade.model.Sites;
+import org.projet.escalade.model.Voie;
 
 public class SecteurManagerImpl extends AbstractManager implements SecteurManager{
 
@@ -12,8 +13,14 @@ public class SecteurManagerImpl extends AbstractManager implements SecteurManage
 		return getDaoFactory().getSecteurDao().getSecteur();
 	}
 
-	public Secteur getSecteur(Integer pID) throws NotFoundException {
-		return null;
+	public List<Secteur> getSecteurBySite(Sites vSite) {
+		return getDaoFactory().getSecteurDao().getSecteurBySite(vSite);
 	}
-
+	
+	public Secteur getSecteur(int id) {
+		Secteur vSecteur = getDaoFactory().getSecteurDao().getSecteur(id);
+		List<Voie> vVoie = getDaoFactory().getVoieDao().getVoieBySecteur(vSecteur);	
+		vSecteur.setVoie(vVoie);
+		return vSecteur;
+	}	
 }

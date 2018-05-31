@@ -10,4 +10,6 @@ public interface SecteurManager {
 	List<Secteur> getListSecteur();
 	
 	List<Secteur> getSecteurBySite(Sites vSite);
+
+	Secteur getSecteur(int id);
 }

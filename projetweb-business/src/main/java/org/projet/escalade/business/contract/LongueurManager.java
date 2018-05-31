@@ -6,10 +6,10 @@ import org.projet.escalade.model.Longueur;
 import org.projet.escalade.model.Voie;
 
 public interface LongueurManager {
-	
-	Longueur getLongueur(int id);
 
 	List<Longueur> getListLongueur();
 	
 	List<Longueur> getLongueurByVoie(Voie vVoie);
+
+	Longueur getLongueur(int id);
 }

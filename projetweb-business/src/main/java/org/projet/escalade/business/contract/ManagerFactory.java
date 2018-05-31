@@ -10,5 +10,11 @@ public interface ManagerFactory {
 	
 	UserManager getUserManager();
 	
-	CommentaireManager getCommentaireManager();
+	AjouttopoManager getAjouttopoManager();
+	
+	VoieManager getVoieManager();
+
+	LongueurManager getLongueurManager();
+	
+	PointsManager getPointsManager();
 }

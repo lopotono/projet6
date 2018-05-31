@@ -17,7 +17,6 @@ public class LongueurManagerImpl extends AbstractManager implements LongueurMana
 	}
 
 	public Longueur getLongueur(int id) {
-		Longueur vLongueur = getDaoFactory().getLongueurDao().getLongueur(id);
-		return vLongueur;
+		return getDaoFactory().getLongueurDao().getLongueur(id);
 	}
 }

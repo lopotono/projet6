@@ -16,6 +16,4 @@ public class ResponsableManagerImpl extends AbstractManager implements Responsab
 	public void setResponsable(List<Responsable> responsable) {
 		this.responsable = responsable;
 	}
-	
-
 }
