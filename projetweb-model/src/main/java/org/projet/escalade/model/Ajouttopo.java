@@ -8,11 +8,7 @@ public class Ajouttopo {
 	private User responsable;
 	private Date dateCreation;
 	private Boolean cloture;
-	
-	public Ajouttopo() {
-		
-	}
-	
+			
 	public String getAjouttoponame() {
 		return ajouttoponame;
 	}

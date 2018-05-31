@@ -1,10 +1,16 @@
 /home/fred/Bureau/env/projetweb/projetweb-model/src/main/java/org/projet/escalade/model/Responsable.java
+/home/fred/Bureau/env/projetweb/projetweb-model/src/main/java/org/projet/escalade/model/exception/SpringException.java
 /home/fred/Bureau/env/projetweb/projetweb-model/src/main/java/org/projet/escalade/model/Secteur.java
 /home/fred/Bureau/env/projetweb/projetweb-model/src/main/java/org/projet/escalade/model/App.java
 /home/fred/Bureau/env/projetweb/projetweb-model/src/main/java/org/projet/escalade/model/Topos.java
 /home/fred/Bureau/env/projetweb/projetweb-model/src/main/java/org/projet/escalade/model/exception/NotFoundException.java
+/home/fred/Bureau/env/projetweb/projetweb-model/src/main/java/org/projet/escalade/model/Points.java
+/home/fred/Bureau/env/projetweb/projetweb-model/src/main/java/org/projet/escalade/model/Longueur.java
+/home/fred/Bureau/env/projetweb/projetweb-model/src/main/java/org/projet/escalade/model/Ajouttopo.java
 /home/fred/Bureau/env/projetweb/projetweb-model/src/main/java/org/projet/escalade/model/exception/FunctionalException.java
+/home/fred/Bureau/env/projetweb/projetweb-model/src/main/java/org/projet/escalade/model/Formulaire.java
+/home/fred/Bureau/env/projetweb/projetweb-model/src/main/java/org/projet/escalade/model/Voie.java
 /home/fred/Bureau/env/projetweb/projetweb-model/src/main/java/org/projet/escalade/model/User.java
+/home/fred/Bureau/env/projetweb/projetweb-model/src/main/java/org/projet/escalade/model/Message.java
 /home/fred/Bureau/env/projetweb/projetweb-model/src/main/java/org/projet/escalade/model/exception/TechnicalException.java
-/home/fred/Bureau/env/projetweb/projetweb-model/src/main/java/org/projet/escalade/model/Commentaire.java
 /home/fred/Bureau/env/projetweb/projetweb-model/src/main/java/org/projet/escalade/model/Sites.java

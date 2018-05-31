@@ -1,12 +1,15 @@
 package org.projet.escalade.model;
 
+import java.util.List;
+
 public class Voie {
 	
-	private Integer id;
-	private Integer voiehauteur;
-	private Integer voienumerocotation;
-	private Integer voienombrepoints;
-	
+	private int id;
+	private int voiehauteur;
+	private int voienumerocotation;
+	private int voienombrepoints;
+	private List<Longueur> longueur;
+		
 	public Voie() {
 		
 	}
@@ -34,5 +37,13 @@ public class Voie {
 	}
 	public void setVoienombrepoints(Integer voienombrepoints) {
 		this.voienombrepoints = voienombrepoints;
+	}
+
+	public List<Longueur> getLongueur() {
+		return longueur;
+	}
+
+	public void setLongueur(List<Longueur> longueur) {
+		this.longueur = longueur;
 	}
 }

@@ -1,16 +1,25 @@
 package org.projet.escalade.model;
 
+import java.util.Date;
+
 public class Topos {
 	
-	private Integer id;
+	private int id;
 	private String toposname;
 	private boolean topodispo;
+	private boolean cloture;
+	private User username;
+	private Date dateCreation;
 	
-	public Integer getId() {
+	public Topos() {
+		
+	}
+	
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -28,5 +37,31 @@ public class Topos {
 
 	public void setTopodispo(boolean topodispo) {
 		this.topodispo = topodispo;
-	}	
+	}
+
+	public boolean isCloture() {
+		return cloture;
+	}
+
+	public void setCloture(boolean cloture) {
+		this.cloture = cloture;
+	}
+
+	public User getUsername() {
+		return username;
+	}
+
+	public void setUsername(User username) {
+		this.username = username;
+	}
+
+	public Date getDateCreation() {
+		return dateCreation;
+	}
+
+	public void setDateCreation(Date dateCreation) {
+		this.dateCreation = dateCreation;
+	}
+
+	
 }

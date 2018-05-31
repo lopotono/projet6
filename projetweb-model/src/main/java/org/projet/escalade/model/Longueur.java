@@ -1,20 +1,35 @@
 package org.projet.escalade.model;
 
+import java.util.List;
+
 public class Longueur {
 	
-	private Integer id;
-	private Integer longueurnombre;
+	public Longueur() {
+		
+	}
 	
-	public Integer getId() {
+	private int id;
+	private int longueurnombre;
+	private List<Points> points;
+	
+	public int getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
-	public Integer getLongueurnombre() {
+	
+	public int getLongueurnombre() {
 		return longueurnombre;
 	}
-	public void setLongueurnombre(Integer longueurnombre) {
+	public void setLongueurnombre(int longueurnombre) {
 		this.longueurnombre = longueurnombre;
+	}
+	
+	public List<Points> getPoints() {
+		return points;
+	}
+	public void setPoints(List<Points> points) {
+		this.points = points;
 	}
 }
