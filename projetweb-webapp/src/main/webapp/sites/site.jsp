@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
- <%@taglib prefix="s" uri="/struts-tags"%>
+	pageEncoding="UTF-8"%>
+<%@taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,30 +8,32 @@
 <title>Insert title here</title>
 </head>
 <body>
-	Site : <s:property value="site.sitesname" />
+	Site :
+	<s:property value="site.sitesname" />
 	<br />
-	Liste des secteurs :
+
 	<ul>
-		<s:iterator value="site.secteurs">			
+		<s:iterator value="site.secteurs">
 			<li>Secteur : <s:property value="secteurname" /></li>
 			<br />
 			<ul>
 				<s:iterator value="voie">
-					<li>Voie id : <s:property value="id"/></li>
-					<li>Hauteur de voie : <s:property value="voiehauteur"/>
-					<li>Cotation de voie : <s:property value="voienumerocotation"/>
-				</s:iterator>
-			</ul>
-			<ul>
-				<s:iterator value="longueur">
-					<li>Longueur id : <s:property value="id"/></li>
-					<li>Nombre de longueur : <s:property value="longueurnombre"/></li>
-				</s:iterator>
-			</ul>
-			<ul>
-				<s:iterator value="points">
-					<li>Points id : <s:property value="id"/></li>
-					<li>Nombre de points : <s:property value="pointsnombre"/></li>
+					<li>Voie id : <s:property value="id" /></li>
+					<li>Nom de la voie : <s:property value="nomvoie" /></li>
+					<li>Hauteur de voie : <s:property value="voiehauteur" /></li>
+					<li>Cotation de voie : <s:property value="voienumerocotation" /></li>
+					<ul>
+						<s:iterator value="longueur">
+							<li>Longueur id : <s:property value="id" /></li>
+							<li>Nombre de longueur : <s:property value="longueurnombre" /></li>
+							<ul>
+								<s:iterator value="points">
+									<li>Points id : <s:property value="id" /></li>
+									<li>Nombre de points : <s:property value="pointsnombre" /></li>
+								</s:iterator>
+							</ul>
+						</s:iterator>
+					</ul>
 				</s:iterator>
 			</ul>
 		</s:iterator>
