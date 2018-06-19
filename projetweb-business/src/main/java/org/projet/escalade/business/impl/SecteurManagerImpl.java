@@ -22,5 +22,9 @@ public class SecteurManagerImpl extends AbstractManager implements SecteurManage
 		List<Voie> vVoie = getDaoFactory().getVoieDao().getVoieBySecteur(vSecteur);	
 		vSecteur.setVoie(vVoie);
 		return vSecteur;
+	}
+
+	public List<Secteur> getSearchSecteur(String name) {
+		return getDaoFactory().getSecteurDao().getSearchSecteur(name);
 	}	
 }
