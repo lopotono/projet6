@@ -44,4 +44,15 @@ public class SecteurDAOImpl extends AbstractDAO implements SecteurDAO {
 		
 		return vListSecteur.get(0);
 	}
+
+	public List<Secteur> getSearchSecteur(String name) {
+		
+		String vSQL = "SELECT * FROM secteur WHERE nom_secteur LIKE '%"+ name + "%'";
+		
+		SecteurRawMapper vRowMapper = new SecteurRawMapper();
+		
+		List<Secteur> secteur = getJdbcTemplate().query(vSQL, vRowMapper);
+		
+		return secteur;
+	}
 }
