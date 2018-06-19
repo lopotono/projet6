@@ -5,7 +5,6 @@
 <html>
 <head>
 <%@ include file="./_include/head.jsp"%>
-
 </head>
 <body>
 	<h2>Sites d'escalade :</h2>
@@ -22,6 +21,12 @@
 	<s:iterator value="searchsecteur">
 		<s:property value="name" />
 		<br />
+	</s:iterator>
+	
+	<h2>Nom de la voie :</h2>
+	<s:iterator value="searchvoie">
+		<s:property value="name"/>
+		<br />	
 	</s:iterator>
 </body>
 </html>
