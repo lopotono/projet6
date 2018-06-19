@@ -12,4 +12,6 @@ public interface SecteurManager {
 	List<Secteur> getSecteurBySite(Sites vSite);
 
 	Secteur getSecteur(int id);
+
+	List<Secteur> getSearchSecteur(String name);
 }
