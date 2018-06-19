@@ -12,4 +12,6 @@ public interface VoieDAO {
 	List<Voie> getVoie();
 
 	List<Voie> getVoieBySecteur(Secteur vSecteur);
+
+	List<Voie> getSearchVoie(String name);
 }
