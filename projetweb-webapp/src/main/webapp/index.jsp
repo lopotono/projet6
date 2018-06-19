@@ -24,7 +24,16 @@
 		<br />
 		<li>
 			<s:a action="form_new">Formulaire d'inscription</s:a>
+		</li>
+		
+		<li>
+			<s:a action="longueur_list">Liste des longueurs</s:a>
 		</li>		
-	</ul>	
+	</ul>
+	
+	<s:form action="search" method="post">
+		<s:textfield name="name" label="Recherche" requiredLabel="true"/>
+		<s:submit value="Recherche"/>
+	</s:form>	
 </body>
 </html>
