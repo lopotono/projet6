@@ -8,7 +8,7 @@ public interface UserManager {
 
 	List<User> getListUser();
 
-	User getUser(String login, String password);
+	User getUsers(Integer id);
 
-	User getUsers(Integer id);	
+	User getUser(String name, String password);	
 }
