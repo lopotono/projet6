@@ -7,15 +7,15 @@ import org.projet.escalade.model.User;
 
 public class UserManagerImpl extends AbstractManager implements UserManager {
 
-	public User getUser(String username, String usermotdepasse) {
-		return getUser(username, usermotdepasse);
-	}
-
 	public List<User> getListUser() {
 		return getDaoFactory().getUserDao().getUser();
 	}
 
 	public User getUsers(Integer id) {
 		return getUsers(id);
+	}
+
+	public User getUser(String name, String password) {
+		return getDaoFactory().getUserDao().getUser(name, password);
 	}
 }
