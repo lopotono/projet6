@@ -8,8 +8,8 @@ public interface UserDAO {
 
 	List<User> getUser();
 	
-	void creer(User user);
-	
-	User trouver(String username);
+	User getUser(int id);
+
+	User getUser(String name, String password);
 }
 
