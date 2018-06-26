@@ -48,12 +48,23 @@ public class SitesDAOImpl extends AbstractDAO implements SitesDAO {
 
 	public List<Sites> getSearchSite(String name) {
 		
-		String vSQL = "SELECT * FROM site_escalade WHERE nom_site LIKE '%"+ name + "%'";
-		
+		String vSQL = "SELECT * FROM site_escalade WHERE LOWER(nom_site) LIKE '%"+ name + "%'";
+	
 		SiteRawMapper vRowMapper = new SiteRawMapper();
 		
 		List<Sites> sites = getJdbcTemplate().query(vSQL, vRowMapper);
 		
 		return sites;
+	}
+
+	public Sites getAddSite(String name) {
+		
+		String vSQL = "INSERT INTO site_escalade SET nom_site='"+ name +"'";
+		System.out.println(vSQL);
+		SiteRawMapper vRowMapper = new SiteRawMapper();
+		
+		List<Sites> sites = getJdbcTemplate().query(vSQL, vRowMapper);
+		
+		return sites.get(0);
 	}
 }
