@@ -138,6 +138,7 @@
 			<result>topos/topo.jsp</result>
 		</action>
 
+		<!-- Action utilisateur unitaire -->
 		<action name="user"
 			class="org.projet.escalade.webapp.action.UserAction" method="execute">
 			<result>user/user.jsp</result>
@@ -164,15 +165,19 @@
 			<result>form/detail.jsp</result>
 		</action>
 
-		<!-- Actions formulaire de saisie -->
-		<action name="formulaire"
-			class="org.projet.escalade.webapp.action.FormulaireAction"
+		<!-- Action emprunter topo -->
+		<action name="emprunt"
+			class="org.projet.escalade.webapp.action.TopoAction"
+			method="executeEmprunt">
+			<result name="input">topos/emprunt.jsp</result>
+			<result name="success">topos/emprunt.jsp</result>
+		</action>
+
+		<!-- Action ajouter site -->
+		<action name="ajout"
+			class="org.projet.escalade.webapp.action.AddSiteAction"
 			method="execute">
-			<result name="input">form/formulaire.jsp</result>
-			<result name="success" type="redirectAction">
-				<param name="actionName">form_detail</param>
-				<param name="id">${form.id}</param>
-			</result>
+			<result name="input">sites/ajout.jsp</result>
 		</action>
 	</package>
 </struts>
