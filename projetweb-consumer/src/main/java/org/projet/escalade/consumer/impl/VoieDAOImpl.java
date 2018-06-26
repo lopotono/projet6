@@ -56,4 +56,9 @@ public class VoieDAOImpl extends AbstractDAO implements VoieDAO {
 		
 		return voie;
 	}
+
+	public Voie getAddVoie(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
