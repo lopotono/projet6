@@ -4,18 +4,20 @@ import java.util.List;
 
 public class Sites {
 		
-	private String sitesname;
+	private String name;
 	private int sitesid;
+	private String description;
 	private List<Secteur> secteurs;
 	private List<Voie> voie;
+	private List<Topos> topo;
 
-    public String getSitesname() {
-        return sitesname;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setSitesname(String sitesname) {
-        this.sitesname = sitesname;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
     public int getSitesid() {
 		return sitesid;
@@ -39,5 +41,21 @@ public class Sites {
 
 	public void setVoie(List<Voie> voie) {
 		this.voie = voie;
-	} 	
+	}
+
+	public List<Topos> getTopo() {
+		return topo;
+	}
+
+	public void setTopo(List<Topos> topo) {
+		this.topo = topo;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}	
 }
