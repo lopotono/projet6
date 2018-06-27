@@ -14,4 +14,6 @@ public interface SitesManager {
 	List<Sites> getSiteByTopos(Topos vTopo);
 
 	List<Sites> getSearchSite(String name);
+	
+	Sites getAddSite(String name, int id_topo, String description);
 }
