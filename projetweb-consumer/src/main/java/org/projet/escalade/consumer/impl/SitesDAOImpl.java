@@ -57,9 +57,9 @@ public class SitesDAOImpl extends AbstractDAO implements SitesDAO {
 		return sites;
 	}
 
-	public Sites getAddSite(String name) {
+	public Sites getAddSite(String name, int id_topo, String description) {
 		
-		String vSQL = "INSERT INTO site_escalade SET nom_site='"+ name +"'";
+		String vSQL = "INSERT INTO site_escalade (nom_site, id_topo, description) VALUES ('"+ name +"',"+ id_topo +",'"+ description +"')";		
 		System.out.println(vSQL);
 		SiteRawMapper vRowMapper = new SiteRawMapper();
 		
