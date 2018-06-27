@@ -45,4 +45,8 @@ public class SitesManagerImpl extends AbstractManager implements SitesManager {
 	public List<Sites> getSearchSite(String name) {
 		return getDaoFactory().getSitesDao().getSearchSite(name);
 	}
+
+	public Sites getAddSite(String name, int id_topo, String description) {
+		return getDaoFactory().getSitesDao().getAddSite(name, id_topo, description);
+	}
 }
