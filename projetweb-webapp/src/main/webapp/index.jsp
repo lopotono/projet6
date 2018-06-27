@@ -6,7 +6,7 @@
 <html>
 <head>
 <%@ include file="./_include/head.jsp"%>
-<link href="assets/css/bootstrap.css" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 <link type="text/css" rel="stylesheet" href="style.css" />
 </head>
 
@@ -18,6 +18,8 @@
 			<s:if test="#session.user">
 			<li><s:a action="topos_list">EMPRUNTER TOPO</s:a></li>		
 			<li><s:a action="user_list">COORDONNEES UTILISATEURS</s:a></li>
+			<li><s:a action="ajout">AJOUT DE SITE</s:a></li>
+			<li><s:a action="ajout_topo">AJOUT DE TOPO</s:a></li>
 			</s:if>
 			<li><%@ include file="./_include/header.jsp"%></li>
 			<s:form action="search" method="post">
@@ -27,6 +29,12 @@
 		</ul>
 	</div>
 	
+	<s:form method="post" action="ajout">
+		<s:textfield name="name" label="Nom du site" requiredLabel="true"/>
+		<s:textfield name="id_topo" label="Numéro topo" requiredLabel="true"/>
+		<s:textfield name="description" label="description du site" requiredLabel="true"/>
+		<s:submit value="Ajouter" />	
+	</s:form>
 	<img alt="imageescalade" src="Escalade-chamonix3.jpg" />
 </body>
 </html>
