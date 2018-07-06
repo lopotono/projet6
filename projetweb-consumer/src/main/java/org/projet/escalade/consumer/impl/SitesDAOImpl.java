@@ -7,10 +7,9 @@ import org.projet.escalade.consumer.contract.SitesDAO;
 import org.projet.escalade.consumer.impl.rawmapper.SiteRawMapper;
 import org.projet.escalade.model.Sites;
 import org.projet.escalade.model.Topos;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.SqlParameterSource;
-import org.springframework.jdbc.support.GeneratedKeyHolder;
-import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 public class SitesDAOImpl extends AbstractDAO implements SitesDAO {
 	
@@ -62,39 +61,26 @@ public class SitesDAOImpl extends AbstractDAO implements SitesDAO {
 		return sites;
 	}
 	
-	public Sites getAddSite(String name, int id_topo, String description) {
+	public void AddSite(String name, int id_topo, String description) {
 		
-		String vSQL = "INSERT INTO site_escalade (nom_site, id_topo, description) VALUES ('"+ name +"',"+ id_topo +",'"+ description +"')";		
-		//String vSQL = "INSERT INTO site_escalade (nom_site, id_topo, description) VALUES (':name,:id_topo,:description')";
+		String vSQL = "INSERT INTO site_escalade (nom_site, id_topo, description) VALUES (':name,:id_topo,:description')";
+		//String vSQL = "INSERT INTO site_escalade (nom_site, id_topo, description) VALUES ('"+ name +"',"+ id_topo +",'"+ description +"')";
+				
 		MapSqlParameterSource vParams = new MapSqlParameterSource();
-		vParams.addValue("name", name, Types.VARCHAR);
+		vParams.addValue("nom_site", name, Types.VARCHAR);
 		vParams.addValue("id_topo", id_topo, Types.INTEGER);
 		vParams.addValue("description", description, Types.VARCHAR);
 				
-		getvNamedParameterJdbcTemplate().update(vSQL, getvParams(), getvKeyHolder(), new String[] {"id_site_escalade"});
-		Number newId = getvKeyHolder().getKey();
-		System.out.println(newId);
+		NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
+				
+		vJdbcTemplate.update(vSQL, vParams);
+		
 		System.out.println(vSQL);
-		//SiteRawMapper vRowMapper = new SiteRawMapper();
-		return null;
-		
-		//List<Sites> sites = getJdbcTemplate().query(vSQL, vRowMapper);
-		
-		//return sites.get(0);
-	
+			
+		try {
+			vJdbcTemplate.update(vSQL, vParams);
+		} catch (DuplicateKeyException vEx) {
+			System.out.println("Le site "+ name +" existe déjà !");
+		}
 	}
-	
-	private SqlParameterSource getvParams() {
-		return null;
-	}
-
-	private KeyHolder vKeyHolder = new GeneratedKeyHolder();
-
-    protected KeyHolder getvKeyHolder() {
-        return vKeyHolder;
-    }
- }
-
-
-
-	
+}	
