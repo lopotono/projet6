@@ -12,7 +12,7 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 public class SitesDAOImpl extends AbstractDAO implements SitesDAO {
-	
+
 	public SitesDAOImpl() {
 		
 	}
@@ -59,28 +59,26 @@ public class SitesDAOImpl extends AbstractDAO implements SitesDAO {
 		List<Sites> sites = getJdbcTemplate().query(vSQL, vRowMapper);
 		
 		return sites;
+		
 	}
 	
 	public void AddSite(String name, int id_topo, String description) {
-		
-		String vSQL = "INSERT INTO site_escalade (nom_site, id_topo, description) VALUES (':name,:id_topo,:description')";
+										
+		String vSQL = "INSERT INTO site_escalade (nom_site, id_topo, description) VALUES (:nom_site,:id_topo,:description)";
 		//String vSQL = "INSERT INTO site_escalade (nom_site, id_topo, description) VALUES ('"+ name +"',"+ id_topo +",'"+ description +"')";
-				
 		MapSqlParameterSource vParams = new MapSqlParameterSource();
 		vParams.addValue("nom_site", name, Types.VARCHAR);
 		vParams.addValue("id_topo", id_topo, Types.INTEGER);
 		vParams.addValue("description", description, Types.VARCHAR);
-				
-		NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
-				
-		vJdbcTemplate.update(vSQL, vParams);
 		
-		System.out.println(vSQL);
+		NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
 			
 		try {
 			vJdbcTemplate.update(vSQL, vParams);
+			System.out.println("Le site "+ name +" est bien ajouté !");
 		} catch (DuplicateKeyException vEx) {
-			System.out.println("Le site "+ name +" existe déjà !");
+			System.out.println("Le site "+ name +" existe déjà !");			
 		}
+		//getJdbcTemplate().update(vSQL);
 	}
 }	
