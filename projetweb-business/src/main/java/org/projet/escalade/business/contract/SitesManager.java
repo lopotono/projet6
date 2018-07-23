@@ -15,5 +15,5 @@ public interface SitesManager {
 
 	List<Sites> getSearchSite(String name);
 	
-	Sites getAddSite(String name, int id_topo, String description);
+	void AddSite(String name, int id_topo, String description);
 }
