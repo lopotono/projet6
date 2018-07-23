@@ -12,4 +12,8 @@ public interface VoieManager {
 	List<Voie> getListVoie();
 	
 	List<Voie> getVoieBySecteur(Secteur vSecteur);
+	
+	List<Voie> getSearchVoie(String name);
+
+	void AddVoie(int id, String name, int hauteur, int numero, int nbpoints, int id_secteur);
 }
