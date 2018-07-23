@@ -1,12 +1,14 @@
 package org.projet.escalade.consumer.impl;
 
+import java.sql.Types;
 import java.util.List;
 
 import org.projet.escalade.consumer.contract.TopoDAO;
 import org.projet.escalade.consumer.impl.rawmapper.TopoRawMapper;
-import org.projet.escalade.model.Sites;
 import org.projet.escalade.model.Topos;
-import org.projet.escalade.model.User;
+import org.springframework.dao.DuplicateKeyException;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 public class TopoDAOImpl extends AbstractDAO implements TopoDAO {
 	
@@ -36,25 +38,54 @@ public class TopoDAOImpl extends AbstractDAO implements TopoDAO {
 		return vListTopos.get(0);
 	}
 
-	public List<Topos> getToposBySite(Sites vSite) {
+	public Topos getSearchTopo(int id, String name) {
+
+		String vSQL = "SELECT * FROM topo WHERE id_topo, nom_topo=" + id + name;
 		
-		String vSQL = "SELECT * FROM topo WHERE id_site_escalade=" + vSite.getSitesid();
-		System.out.println(vSQL);	
 		TopoRawMapper vRowMapper = new TopoRawMapper();
 		
 		List<Topos> vListTopos= getJdbcTemplate().query(vSQL, vRowMapper);
 		
-		return vListTopos;
+		return vListTopos.get(0);
 	}
 
-	public List<Topos> getToposByUser(User vUser) {
+	public Topos getAddTopo(String name, Boolean dispo, int id) {
 		
-		String vSQL = "SELECT * FROM topo WHERE id_user=" + vUser.getId();
+		String vSQL = "INSERT INTO topo (nom_topo, topo_disponible, id_user) VALUES ('"+ name +"',"+ dispo +","+ id +")";
+		System.out.println(vSQL);
+		TopoRawMapper vRowMapper = new TopoRawMapper();
+		
+		List<Topos> topos= getJdbcTemplate().query(vSQL, vRowMapper);
+
+		return topos.get(0);
+	}
+
+	public Topos getEmprunttopo(String name) {
+		
+		String vSQL = "SELECT * FROM topo WHERE nom_topo=" + name;
 		
 		TopoRawMapper vRowMapper = new TopoRawMapper();
 		
-		List<Topos> vListTopos= getJdbcTemplate().query(vSQL, vRowMapper);
+		List<Topos> topos= getJdbcTemplate().query(vSQL, vRowMapper);
 		
-		return vListTopos;
+		return topos.get(0);
+	}
+
+	public void AjoutTopo(String name, Boolean dispo, int id) {
+		
+		String vSQL = "INSERT INTO topo (nom_topo, topo_disponible, id_user) VALUES (:nom_topo,:topo_disponible,:id_user)";
+				
+		MapSqlParameterSource vParams = new MapSqlParameterSource();
+		vParams.addValue("nom_topo", name, Types.VARCHAR);
+		vParams.addValue("topo_disponible", dispo, Types.BOOLEAN);
+		vParams.addValue("id_user", id, Types.INTEGER);
+
+		NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
+		
+		try {
+		vJdbcTemplate.update(vSQL, vParams);
+		} catch (DuplicateKeyException vEx) {
+			System.out.println("Le topo "+ name +" existe déjà !");
+		}
 	}				
 }
