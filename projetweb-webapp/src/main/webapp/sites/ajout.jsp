@@ -10,11 +10,11 @@
 </head>
 <body>
 	<s:a action="index" class="btn btn-primary btn-lg">Retour</s:a>
-	
+
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-4 col-sm-offset-4 login_bg">
-				<s:form method="post" action="ajout">
+			<div class="col-sm-12 login_bg">
+				<s:form method="post" action="addsite">
 					<s:textfield name="name" requiredLabel="true"
 						placeholder="Nom du site" class="form-control" />
 
