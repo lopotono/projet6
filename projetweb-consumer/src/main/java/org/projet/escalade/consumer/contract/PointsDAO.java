@@ -12,4 +12,6 @@ public interface PointsDAO {
 	List<Points> getPoints();
 
 	List<Points> getPointsByLongueur(Longueur vLongueur);
+
+	void AddPoints(int id, int nbpoints, int id_longueur);
 }
