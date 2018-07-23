@@ -1,11 +1,15 @@
 package org.projet.escalade.consumer.impl;
 
+import java.sql.Types;
 import java.util.List;
 
 import org.projet.escalade.consumer.contract.SecteurDAO;
 import org.projet.escalade.consumer.impl.rawmapper.SecteurRawMapper;
 import org.projet.escalade.model.Secteur;
 import org.projet.escalade.model.Sites;
+import org.springframework.dao.DuplicateKeyException;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 public class SecteurDAOImpl extends AbstractDAO implements SecteurDAO {
 
@@ -56,8 +60,21 @@ public class SecteurDAOImpl extends AbstractDAO implements SecteurDAO {
 		return secteur;
 	}
 
-	public Secteur getAddSecteur(String name) {
-		// TODO Auto-generated method stub
-		return null;
+	public void AddSecteur(String name, int id_site) {
+		
+		String vSQL = "INSERT INTO secteur (nom_secteur, id_site_escalade) VALUES (:nom_secteur,:id_site_escalade)";
+		
+		MapSqlParameterSource vParams = new MapSqlParameterSource();
+		vParams.addValue("nom_secteur", name, Types.VARCHAR);
+		vParams.addValue("id_site_escalade", id_site, Types.INTEGER);
+			
+		NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
+			
+		try {
+			vJdbcTemplate.update(vSQL, vParams);
+			System.out.println("Le secteur "+ name + "est bien ajouté");
+		} catch (DuplicateKeyException vEx) {
+			System.out.println("Le secteur "+ name +" existe déjà !");
+		}
 	}
 }
