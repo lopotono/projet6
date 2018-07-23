@@ -12,4 +12,6 @@ public interface LongueurManager {
 	List<Longueur> getLongueurByVoie(Voie vVoie);
 
 	Longueur getLongueur(int id);
+	
+	void AddLongueur(int id, int nblongueur, int id_voie);
 }
