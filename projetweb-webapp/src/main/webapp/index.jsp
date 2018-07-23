@@ -6,35 +6,40 @@
 <html>
 <head>
 <%@ include file="./_include/head.jsp"%>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<link href="css/bootstrap.css" rel="stylesheet">
 <link type="text/css" rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-	<div>
-		<ul>
-			<li><s:a action="index" class="active">ACCUEIL</s:a></li>
-			<li><s:a action="sites_list">LISTE DES SITES D'ESCALADE</s:a></li>
-			<s:if test="#session.user">
-			<li><s:a action="topos_list">EMPRUNTER TOPO</s:a></li>		
-			<li><s:a action="user_list">COORDONNEES UTILISATEURS</s:a></li>
-			<li><s:a action="ajout">AJOUT DE SITE</s:a></li>
-			<li><s:a action="ajout_topo">AJOUT DE TOPO</s:a></li>
-			</s:if>
-			<li><%@ include file="./_include/header.jsp"%></li>
-			<s:form action="search" method="post">
-				<s:textfield name="name" requiredLabel="true" />
-				<s:submit value="Recherche" />
-			</s:form>
-		</ul>
+	<div class="container">
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container-fluid">
+				<ul class="nav navbar-nav">
+					<li><s:a action="index" class="active">ACCUEIL</s:a></li>
+					<li><s:a action="sites_list">SITES D'ESCALADE</s:a></li>
+					<s:if test="#session.user">
+						<li><s:a action="emprunt">EMPRUNTER TOPO</s:a></li>
+						<li><s:a action="user_list">INFOS UTILISATEURS</s:a></li>
+						<li><s:a action="addsite">AJOUT DE SITE</s:a>
+							<ul class="submenu">
+								<li><s:a action="addsecteur">AJOUT DE SECTEUR</s:a></li>
+								<li><s:a action="addvoie">AJOUT DE VOIE</s:a></li>
+								<li><s:a action="ajouttopo">AJOUT DE TOPO</s:a></li>
+								<li><s:a action="addpoints">AJOUT DES POINTS</s:a></li>
+								<li><s:a action="addlongueur">AJOUT DES LONGUEURS</s:a></li>
+							</ul></li>
+					</s:if>
+					<li><%@ include file="./_include/header.jsp"%></li>
+				</ul>
+			</div>
+		</nav>
 	</div>
-	
-	<s:form method="post" action="ajout">
-		<s:textfield name="name" label="Nom du site" requiredLabel="true"/>
-		<s:textfield name="id_topo" label="Numéro topo" requiredLabel="true"/>
-		<s:textfield name="description" label="description du site" requiredLabel="true"/>
-		<s:submit value="Ajouter" />	
+
+	<s:form action="search" method="post"
+		class="navbar-form navbar-right inline-form">
+		<s:textfield name="name" requiredLabel="true" placeholder="Recherche"
+			class="input-lg form-control" />
+		<s:submit value="Chercher" class="btn btn-primary btn-lg" />
 	</s:form>
-	<img alt="imageescalade" src="Escalade-chamonix3.jpg" />
 </body>
 </html>
