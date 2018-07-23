@@ -14,4 +14,6 @@ public interface SecteurManager {
 	Secteur getSecteur(int id);
 
 	List<Secteur> getSearchSecteur(String name);
+	
+	void AddSecteur (String name, int id_site);
 }
