@@ -2,9 +2,7 @@ package org.projet.escalade.business.contract;
 
 import java.util.List;
 
-import org.projet.escalade.model.Sites;
 import org.projet.escalade.model.Topos;
-import org.projet.escalade.model.User;
 
 public interface ToposManager {
 
@@ -12,7 +10,9 @@ public interface ToposManager {
 
 	Topos getTopo(int id);
 	
-	List<Topos> getToposBySite(Sites vSite);
+	Topos getSearchTopo(int id, String name);
 	
-	List<Topos> getToposByUser(User vUser);
+	void AjoutTopo(String name, Boolean dispo, int id);
+
+	Topos getEmprunttopo(String name);
 }
