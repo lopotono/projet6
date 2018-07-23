@@ -14,5 +14,6 @@ public interface SitesDAO {
 	List<Sites> getSiteByTopos(Topos vTopo);
 
 	List<Sites> getSearchSite(String name);
-}
 
+	void AddSite(String name, int id_topo, String description);
+}
