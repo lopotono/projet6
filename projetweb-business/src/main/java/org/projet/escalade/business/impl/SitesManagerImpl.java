@@ -9,6 +9,10 @@ import org.projet.escalade.model.Secteur;
 import org.projet.escalade.model.Sites;
 import org.projet.escalade.model.Topos;
 import org.projet.escalade.model.Voie;
+import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.support.TransactionCallbackWithoutResult;
+import org.springframework.transaction.support.TransactionTemplate;
 
 public class SitesManagerImpl extends AbstractManager implements SitesManager {
 
@@ -45,8 +49,19 @@ public class SitesManagerImpl extends AbstractManager implements SitesManager {
 	public List<Sites> getSearchSite(String name) {
 		return getDaoFactory().getSitesDao().getSearchSite(name);
 	}
+	
+	@Transactional(value="txManagerSite")
+	public void AddSite(final String name, final int id_topo, final String description) {
+	
+		TransactionTemplate vTransactionTemplate = new TransactionTemplate(getPlatformTransactionManager());
+	
+		vTransactionTemplate.execute(new TransactionCallbackWithoutResult() {
 
-	public Sites getAddSite(String name, int id_topo, String description) {
-		return getDaoFactory().getSitesDao().getAddSite(name, id_topo, description);
+			@Override
+			protected void doInTransactionWithoutResult(TransactionStatus status) {
+				
+				getDaoFactory().getSitesDao().AddSite(name, id_topo, description);
+			};
+		});
 	}
 }
