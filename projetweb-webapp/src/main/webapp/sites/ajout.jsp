@@ -20,6 +20,8 @@
 
 					<s:textfield name="id_topo" requiredLabel="true"
 						placeholder="Numéro topo" class="form-control" />
+						
+					<s:select listValue="toposname" list="listTopos" listKey="id" />
 
 					<s:textfield name="description" requiredLabel="true"
 						placeholder="Description du site" class="form-control" />
