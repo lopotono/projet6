@@ -1,13 +1,9 @@
 package org.projet.escalade.webapp.action;
 
-import java.util.Date;
 import java.util.List;
 
-import org.projet.escalade.model.Ajouttopo;
+import org.projet.escalade.model.Topos;
 import org.projet.escalade.model.User;
-import org.projet.escalade.model.exception.FunctionalException;
-import org.projet.escalade.model.exception.NotFoundException;
-import org.projet.escalade.model.exception.TechnicalException;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -20,7 +16,10 @@ public class AjoutTopoAction extends AbstractAction {
 
 	private List<User> listUser;
 
-	private Ajouttopo ajouttopo;
+	private Topos ajouttopo;
+	private String name;
+	private Boolean dispo;
+	private String id;
 
 	public List<User> getListUser() {
 		return listUser;
@@ -30,41 +29,45 @@ public class AjoutTopoAction extends AbstractAction {
 		this.listUser = listUser;
 	}
 
-	public Ajouttopo getAjouttopo() {
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Boolean getDispo() {
+		return dispo;
+	}
+
+	public void setDispo(Boolean dispo) {
+		this.dispo = dispo;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+	
+	public Topos getAjouttopo() {
 		return ajouttopo;
 	}
 
-	public void setAjouttopo(Ajouttopo ajouttopo) {
+	public void setAjouttopo(Topos ajouttopo) {
 		this.ajouttopo = ajouttopo;
 	}
-
-	public String doCreate() throws FunctionalException, TechnicalException {
-
-		String vResult = ActionSupport.INPUT;
-
-		if (this.ajouttopo.getResponsable() == null || this.ajouttopo.getResponsable().getId() == null) {
-			this.addFieldError("ajouttopo.responsable.id", "ne doit pas être vide");
-		} else {
-			try {
-				User vResponsable = getManagerFactory().getUserManager()
-						.getUser(this.ajouttopo.getResponsable().getId());
-				this.ajouttopo.setResponsable(vResponsable);
-			} catch (NotFoundException pE) {
-				this.addFieldError("ajouttopo.responsable.id", pE.getMessage());
-			}
+	
+	public String execute() {
+		
+		String result = ActionSupport.INPUT;
+		if (name != null && dispo != null && id != null) {
+			getManagerFactory().getToposManager().AjoutTopo(name, dispo , Integer.valueOf(id));
+			result = ActionSupport.SUCCESS;
 		}
-
-		this.ajouttopo.setDateCreation(new Date());
-
-		if (!this.hasErrors()) {
-			getManagerFactory().getAjouttopoManager().insertAjouttopo(this.ajouttopo);
-			vResult = ActionSupport.SUCCESS;
-			this.addActionMessage("Topo ajouté avec succès");
-		}
-		if (vResult.equals(ActionSupport.INPUT)) {
-			this.listUser = getManagerFactory().getUserManager().getListUser();
-		}
-
-		return vResult;
+		return result;
 	}
 }
