@@ -5,28 +5,48 @@
 <html>
 <head>
 <%@ include file="./_include/head.jsp"%>
+<link href="css/bootstrap.css" rel="stylesheet">
+<link type="text/css" rel="stylesheet" href="style.css" />
 </head>
 <body>
-	<h2>Sites d'escalade :</h2>
+<h1>
+		<span class="label label-success">Sites d'escalade :</span>
+	</h1>
+
 	<s:iterator value="searchsite">
-		<ul>
-			<s:a action="site.action">
+	<div class="panel panel-info">
+			<div class="list-group">
+			<s:a action="site.action" class="list-group-item">
 				<li><result> <s:property value="name" /><br />
 					<s:param name="id" value="sitesid" /></result></li>
 			</s:a>
-		</ul>
+			</div>
+			</div>
+		
 	</s:iterator>
 
-	<h2>Secteur d'escalade :</h2>
+	<h1>
+		<span class="label label-success">Secteurs d'escalade :</span>
+	</h1>
 	<s:iterator value="searchsecteur">
-		<s:property value="name" />
+	<div class="panel panel-info">
+			<div class="list-group">
+		<s:property value="name"/>
+		</div>
+		</div>
 		<br />
 	</s:iterator>
-	
-	<h2>Nom de la voie :</h2>
+
+	<h1>
+		<span class="label label-success">Voies d'escalade :</span>
+	</h1>
 	<s:iterator value="searchvoie">
+	<div class="panel panel-info">
+	<div class="list-group">
 		<s:property value="name"/>
 		<br />	
+		</div>
+		</div>
 	</s:iterator>
 </body>
 </html>
