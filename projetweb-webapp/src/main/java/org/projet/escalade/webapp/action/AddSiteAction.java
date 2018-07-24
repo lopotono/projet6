@@ -1,63 +1,49 @@
 package org.projet.escalade.webapp.action;
 
-import org.projet.escalade.model.Secteur;
-import org.projet.escalade.model.Sites;
-import org.projet.escalade.model.Voie;
-
 import com.opensymphony.xwork2.ActionSupport;
 
 public class AddSiteAction extends AbstractAction {
-	
-/**
-	 * 
-	 */
+
+	/**
+		 * 
+		 */
 	private static final long serialVersionUID = -3157546552966957237L;
-	
-	private Sites addsite;
-	private Secteur addsecteur;
-	private Voie addvoie;
+
+	private String id_topo;
 	private String name;
+	private String description;
 
-	public Sites getAddsite() {
-		return addsite;
-	}
-
-	public void setAddsite(Sites addsite) {
-		this.addsite = addsite;
-	}
-	
-	public Secteur getAddSecteur() {
-		return addsecteur;
-	}
-
-	public void setAddSecteur(Secteur addSecteur) {
-		this.addsecteur = addSecteur;
-	}
-	
-	public Voie getAddvoie() {
-		return addvoie;
-	}
-
-	public void setAddvoie(Voie addvoie) {
-		this.addvoie = addvoie;
-	}
-	
 	public String getName() {
 		return name;
 	}
-	
+
 	public void setName(String name) {
 		this.name = name;
 	}
-		
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getId_topo() {
+		return id_topo;
+	}
+
+	public void setId_topo(String id_topo) {
+		this.id_topo = id_topo;
+	}
+
 	public String execute() {
-		
-		addsite = getManagerFactory().getSitesManager().getAddSite(name);
-		
-		addsecteur = getManagerFactory().getSecteurManager().getAddSecteur(name);
-		
-		addvoie = getManagerFactory().getVoieManager().getAddVoie(name);
-		
-		return ActionSupport.SUCCESS;		
+
+		String result = ActionSupport.INPUT;
+		if (name != null && description != null && id_topo != null) {
+			getManagerFactory().getSitesManager().AddSite(name, Integer.valueOf(id_topo) , description);
+			result = ActionSupport.SUCCESS;
+		}
+		return result;	
 	}
 }
