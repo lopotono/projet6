@@ -62,6 +62,12 @@ body {
 
 .btn1 {
 	display: inline-block;
+	width: 325px;
+	line-height: 30px;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration:none;
+	font-family: system-ui;
 }
 
 .login_bg .form-control {
@@ -70,6 +76,7 @@ body {
 	border: 2px solid #000000;
 	color: #000000;
 	font-size: 1.4em;
+	margin: 5px;
 }
 
 .login_bg {
@@ -88,10 +95,10 @@ body {
 }
 
 .container {
-	 width: 970px;
+	width: 970px;
 }
 
-nav > ul > li {
+nav>ul>li {
 	float: left;
 	position: relative;
 }
@@ -109,7 +116,7 @@ nav li {
 	background-color: #424558;
 }
 
-nav > ul::after {
+nav>ul::after {
 	content: "";
 	display: block;
 	clear: both;
@@ -120,7 +127,7 @@ nav a {
 	text-decoration: none;
 }
 
-nav > ul > li > a {
+nav>ul>li>a {
 	padding: 20px 30px;
 	color: #FFF;
 }
@@ -140,7 +147,7 @@ nav li:hover .submenu {
 }
 
 .submenu li {
-	border-bottom : 1px solid #CCC;
+	border-bottom: 1px solid #CCC;
 }
 
 .submenu li a {
