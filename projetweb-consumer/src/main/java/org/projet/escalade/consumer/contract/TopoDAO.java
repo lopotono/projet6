@@ -12,7 +12,7 @@ public interface TopoDAO {
 
 	Topos getSearchTopo(int id, String name);
 
-	void AjoutTopo(String name, Boolean dispo, int id);
+	void AjoutTopo(String name, Boolean dispo, String iduser);
 
 	Topos getEmprunttopo(String name);
 }
