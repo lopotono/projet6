@@ -15,5 +15,5 @@ public interface SitesDAO {
 
 	List<Sites> getSearchSite(String name);
 
-	void AddSite(String name, int id_topo, String description);
+	void AddSite(String name, String idtopo, String description);
 }
