@@ -60,13 +60,13 @@ public class SecteurDAOImpl extends AbstractDAO implements SecteurDAO {
 		return secteur;
 	}
 
-	public void AddSecteur(String name, int id_site) {
+	public void AddSecteur(String name, String idsites) {
 		
 		String vSQL = "INSERT INTO secteur (nom_secteur, id_site_escalade) VALUES (:nom_secteur,:id_site_escalade)";
 		
 		MapSqlParameterSource vParams = new MapSqlParameterSource();
 		vParams.addValue("nom_secteur", name, Types.VARCHAR);
-		vParams.addValue("id_site_escalade", id_site, Types.INTEGER);
+		vParams.addValue("id_site_escalade", idsites, Types.INTEGER);
 			
 		NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
 			
