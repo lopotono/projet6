@@ -17,16 +17,13 @@
 				<s:form method="post" action="addsite">
 					<s:textfield name="name" requiredLabel="true"
 						placeholder="Nom du site" class="form-control" />
-
-					<s:textfield name="id_topo" requiredLabel="true"
-						placeholder="Numéro topo" class="form-control" />
 						
-					<s:select listValue="toposname" list="listTopos" listKey="id" />
+					<s:select name="idtopo" list="listTopos" listKey="id" listValue="toposname"/>
 
 					<s:textfield name="description" requiredLabel="true"
 						placeholder="Description du site" class="form-control" />
 
-					<s:submit value="Ajouter" class="btn1 btn-primary btn-lg" />
+					<s:submit value="AJOUTER" class="btn1 btn-primary btn-lg" />
 				</s:form>
 			</div>
 		</div>
