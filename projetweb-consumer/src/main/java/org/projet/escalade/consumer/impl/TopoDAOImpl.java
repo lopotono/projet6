@@ -71,14 +71,14 @@ public class TopoDAOImpl extends AbstractDAO implements TopoDAO {
 		return topos.get(0);
 	}
 
-	public void AjoutTopo(String name, Boolean dispo, int id) {
+	public void AjoutTopo(String name, Boolean dispo, String iduser) {
 		
 		String vSQL = "INSERT INTO topo (nom_topo, topo_disponible, id_user) VALUES (:nom_topo,:topo_disponible,:id_user)";
 				
 		MapSqlParameterSource vParams = new MapSqlParameterSource();
 		vParams.addValue("nom_topo", name, Types.VARCHAR);
 		vParams.addValue("topo_disponible", dispo, Types.BOOLEAN);
-		vParams.addValue("id_user", id, Types.INTEGER);
+		vParams.addValue("id_user", iduser, Types.INTEGER);
 
 		NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
 		
