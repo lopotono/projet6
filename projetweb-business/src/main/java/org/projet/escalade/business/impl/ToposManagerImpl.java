@@ -32,7 +32,7 @@ public class ToposManagerImpl extends AbstractManager implements ToposManager {
 	}
 
 	@Transactional(value = "txManagerSite")
-	public void AjoutTopo(final String name, final Boolean dispo, final int id) {
+	public void AjoutTopo(final String name, final Boolean dispo, final String iduser) {
 
 		TransactionTemplate vTransactionTemplate = new TransactionTemplate(getPlatformTransactionManager());
 
@@ -41,8 +41,23 @@ public class ToposManagerImpl extends AbstractManager implements ToposManager {
 			@Override
 			protected void doInTransactionWithoutResult(TransactionStatus status) {
 
-				getDaoFactory().getTopoDao().AjoutTopo(name, dispo, id);
+				getDaoFactory().getTopoDao().AjoutTopo(name, dispo, iduser);
 			};
 		});
+	}
+
+	public Topos getTopo(String topoid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Topos getListDisponible(Boolean listdispo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Topos getUser(String iduser) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
