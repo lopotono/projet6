@@ -51,7 +51,7 @@ public class SitesManagerImpl extends AbstractManager implements SitesManager {
 	}
 	
 	@Transactional(value="txManagerSite")
-	public void AddSite(final String name, final int id_topo, final String description) {
+	public void AddSite(final String name, final String idtopo, final String description) {
 	
 		TransactionTemplate vTransactionTemplate = new TransactionTemplate(getPlatformTransactionManager());
 	
@@ -60,8 +60,13 @@ public class SitesManagerImpl extends AbstractManager implements SitesManager {
 			@Override
 			protected void doInTransactionWithoutResult(TransactionStatus status) {
 				
-				getDaoFactory().getSitesDao().AddSite(name, id_topo, description);
+				getDaoFactory().getSitesDao().AddSite(name, idtopo, description);
 			};
 		});
+	}
+
+	public Sites getTopos(String idtopo) {
+
+		return null;
 	}
 }
