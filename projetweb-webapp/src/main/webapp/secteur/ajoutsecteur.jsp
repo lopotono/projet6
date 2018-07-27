@@ -17,11 +17,8 @@
 				<s:form method="post" action="addsecteur">
 					<s:textfield name="name" requiredLabel="true"
 						placeholder="Nom du secteur" class="form-control" />
-
-					<s:textfield name="id_site" requiredLabel="true"
-						placeholder="Numéro du site" class="form-control" />
 						
-					<s:select name="sitesid" list="listSites" listKey="id" listValue="name"/>
+					<s:select name="idsites" list="listSites" listKey="sitesid" listValue="name"/>
 						
 					<s:submit value="Ajouter" class="btn1 btn-primary btn-lg" />
 				</s:form>
