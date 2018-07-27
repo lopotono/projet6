@@ -62,13 +62,13 @@ public class SitesDAOImpl extends AbstractDAO implements SitesDAO {
 		
 	}
 	
-	public void AddSite(String name, int id_topo, String description) {
+	public void AddSite(String name, String idtopo, String description) {
 										
 		String vSQL = "INSERT INTO site_escalade (nom_site, id_topo, description) VALUES (:nom_site,:id_topo,:description)";
 		//String vSQL = "INSERT INTO site_escalade (nom_site, id_topo, description) VALUES ('"+ name +"',"+ id_topo +",'"+ description +"')";
 		MapSqlParameterSource vParams = new MapSqlParameterSource();
 		vParams.addValue("nom_site", name, Types.VARCHAR);
-		vParams.addValue("id_topo", id_topo, Types.INTEGER);
+		vParams.addValue("id_topo", idtopo, Types.INTEGER);
 		vParams.addValue("description", description, Types.VARCHAR);
 		
 		NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
