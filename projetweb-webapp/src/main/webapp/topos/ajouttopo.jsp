@@ -16,12 +16,10 @@
 				<s:form method="post" action="ajouttopo">
 					<s:textfield name="name" placeholder="Nom du topo"
 						requiredLabel="true" class="form-control" />
+																		
+					<s:select name="iduser" list="listUser" listKey="id" listValue="name"/>
 						
-					<s:textfield name="dispo" placeholder="Disponible"
-						requiredLabel="true" class="form-control" />
-						
-					<s:textfield name="id" placeholder="Numéro utilisateur"
-						requiredLabel="true" class="form-control" />
+					<s:checkbox name="dispo" label="Disponible" />
 						
 					<s:submit value="Ajouter" class="btn1 btn-primary btn-lg" />
 				</s:form>
