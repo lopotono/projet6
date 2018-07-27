@@ -33,7 +33,7 @@ public class SecteurManagerImpl extends AbstractManager implements SecteurManage
 	}
 
 	@Transactional(value = "txManagerSite")
-	public void AddSecteur(final String name, final int id_site) {
+	public void AddSecteur(final String name, final String idsites) {
 
 		TransactionTemplate vTransactionTemplate = new TransactionTemplate(getPlatformTransactionManager());
 
@@ -42,8 +42,13 @@ public class SecteurManagerImpl extends AbstractManager implements SecteurManage
 			@Override
 			protected void doInTransactionWithoutResult(TransactionStatus status) {
 
-				getDaoFactory().getSecteurDao().AddSecteur(name, id_site);
+				getDaoFactory().getSecteurDao().AddSecteur(name, idsites);
 			};
 		});
+	}
+
+	public Secteur getSites(String idsites) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
