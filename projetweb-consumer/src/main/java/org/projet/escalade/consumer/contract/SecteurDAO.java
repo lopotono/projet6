@@ -15,5 +15,5 @@ public interface SecteurDAO {
 
 	List<Secteur> getSearchSecteur(String name);
 	
-	void AddSecteur(String name, int id_site);
+	void AddSecteur(String name, String idsites);
 }
