@@ -20,6 +20,7 @@ public class AjoutTopoAction extends AbstractAction {
 	private String name;
 	private Boolean dispo;
 	private String id;
+	private String iduser;
 
 	public List<User> getListUser() {
 		return listUser;
@@ -61,11 +62,14 @@ public class AjoutTopoAction extends AbstractAction {
 		this.ajouttopo = ajouttopo;
 	}
 	
+	
 	public String execute() {
 		
 		String result = ActionSupport.INPUT;
+		listUser = getManagerFactory().getUserManager().getListUser();
+		getManagerFactory().getToposManager().getUser(iduser);
 		if (name != null && dispo != null && id != null) {
-			getManagerFactory().getToposManager().AjoutTopo(name, dispo , Integer.valueOf(id));
+			getManagerFactory().getToposManager().AjoutTopo(name, dispo , iduser);
 			result = ActionSupport.SUCCESS;
 		}
 		return result;
