@@ -13,6 +13,7 @@ body {
 	margin-bottom: 20px;
 	border: 1px solid transparent;
 	font-size: 1.5em;
+	font-family: Montserrat, sans-serif;
 }
 
 .navbar-default {
@@ -187,7 +188,7 @@ select {
 	border-radius: 4px;
 	box-sizing: border-box;
 	font-size: 2em;
-	font-family: Verdana, "Times New Roman", Georgia, serif;
+	font-family: Montserrat, sans-serif;;
 }
 
 .jumbotron {
