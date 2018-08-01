@@ -170,8 +170,8 @@
 			class="org.projet.escalade.webapp.action.EmpruntAction"
 			method="execute">
 			<result name="input">topos/emprunt.jsp</result>
-			<!-- rediriger vers une action qui affiche la liste des emprunts user -->
-			<result name="success" type="redirectAction">index</result>
+			<!-- rediriger vers une action qui affiche la liste des emprunts des utilisateurs -->
+			<result name="success" type="redirectAction">topos/listemprunt.jsp</result>
 		</action>
 
 		<!-- Action ajouter site -->
@@ -189,32 +189,32 @@
 			<result name="input">topos/ajouttopo.jsp</result>
 			<result name="success" type="redirectAction">index</result>
 		</action>
-		
-			<!-- Action ajouter secteur -->
+
+		<!-- Action ajouter secteur -->
 		<action name="addsecteur"
 			class="org.projet.escalade.webapp.action.AddSecteurAction"
 			method="execute">
 			<result name="input">secteur/ajoutsecteur.jsp</result>
 			<result name="success" type="redirectAction">index</result>
 		</action>
-		
-				<!-- Action ajouter voie -->
+
+		<!-- Action ajouter voie -->
 		<action name="addvoie"
 			class="org.projet.escalade.webapp.action.AddVoieAction"
 			method="execute">
 			<result name="input">voie/ajoutvoie.jsp</result>
 			<result name="success" type="redirectAction">index</result>
 		</action>
-		
-				<!-- Action ajouter points -->
+
+		<!-- Action ajouter points -->
 		<action name="addpoints"
 			class="org.projet.escalade.webapp.action.AddPointsAction"
 			method="execute">
 			<result name="input">points/ajoutpoints.jsp</result>
 			<result name="success" type="redirectAction">index</result>
 		</action>
-		
-				<!-- Action ajouter longueur -->
+
+		<!-- Action ajouter longueur -->
 		<action name="addlongueur"
 			class="org.projet.escalade.webapp.action.AddLongueurAction"
 			method="execute">
