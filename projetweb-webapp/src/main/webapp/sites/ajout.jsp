@@ -13,26 +13,25 @@
 	<div class="jumbotron text-center">
 		<h1>Ajout d'un site d'escalade</h1>
 		<p>Remplir le formulaire d'ajout</p>
-		<s:a action="index" class="btn btn-primary btn-lg">Retour</s:a>
-	</div>
+				
+		<div class="container">
+			<div class="row">
+				<div>
+					<s:form method="post" action="addsite">
+						<s:textfield name="name" requiredLabel="true"
+							placeholder="Nom du site d'escalade" class="form-control" />
 
+						<s:select name="idtopo" list="listTopos" listKey="id"
+							listValue="toposname" />
 
-	<div class="container">
-		<div class="row">
-			<div>
-				<s:form method="post" action="addsite">
-					<s:textfield name="name" requiredLabel="true"
-						placeholder="Nom du site d'escalade" class="form-control" />
+						<s:textarea placeholder="Description du site d'escalade..."
+							name="description" requiredLabel="true" cols="50" rows="10"
+							class="form-control" />
 
-					<s:select name="idtopo" list="listTopos" listKey="id"
-						listValue="toposname" />
-
-					<s:textarea placeholder="Description du site d'escalade..."
-						name="description" requiredLabel="true" cols="50" rows="10"
-						class="form-control" />
-
-					<s:submit value="AJOUTER" class="btn1 btn-success btn-lg" />
-				</s:form>
+						<s:submit value="AJOUTER" class="btn1 btn-success btn-lg" />
+					</s:form>
+					<s:a action="index" class="btn btn-primary btn-md pull-left">Retour accueil</s:a>
+				</div>
 			</div>
 		</div>
 	</div>
