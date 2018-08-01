@@ -9,21 +9,29 @@
 <link type="text/css" rel="stylesheet" href="style.css" />
 </head>
 <body>
-	<s:a action="index" class="btn btn-primary btn-lg">Retour</s:a>
+
+	<div class="jumbotron text-center">
+		<h1>Ajout d'un site d'escalade</h1>
+		<p>Remplir le formulaire d'ajout</p>
+		<s:a action="index" class="btn btn-primary btn-lg">Retour</s:a>
+	</div>
+
 
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-12 login_bg">
+			<div>
 				<s:form method="post" action="addsite">
 					<s:textfield name="name" requiredLabel="true"
-						placeholder="Nom du site" class="form-control" />
-						
-					<s:select name="idtopo" list="listTopos" listKey="id" listValue="toposname"/>
+						placeholder="Nom du site d'escalade" class="form-control" />
 
-					<s:textfield name="description" requiredLabel="true"
-						placeholder="Description du site" class="form-control" />
+					<s:select name="idtopo" list="listTopos" listKey="id"
+						listValue="toposname" />
 
-					<s:submit value="AJOUTER" class="btn1 btn-primary btn-lg" />
+					<s:textarea placeholder="Description du site d'escalade..."
+						name="description" requiredLabel="true" cols="50" rows="10"
+						class="form-control" />
+
+					<s:submit value="AJOUTER" class="btn1 btn-success btn-lg" />
 				</s:form>
 			</div>
 		</div>
