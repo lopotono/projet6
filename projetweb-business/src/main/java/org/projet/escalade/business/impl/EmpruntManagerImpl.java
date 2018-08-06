@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.projet.escalade.business.contract.EmpruntManager;
 import org.projet.escalade.model.Emprunttopo;
+import org.projet.escalade.model.User;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.TransactionCallbackWithoutResult;
@@ -29,5 +30,9 @@ public class EmpruntManagerImpl extends AbstractManager implements EmpruntManage
 				getDaoFactory().getEmpruntDao().AddEmprunt(datedebut, datefin, id_topo, id_user);
 			};
 		});
+	}
+
+	public List<Emprunttopo> getEmpruntByUser(User vUser) {
+		return getDaoFactory().getEmpruntDao().getEmpruntByUser(vUser);
 	}
 }
