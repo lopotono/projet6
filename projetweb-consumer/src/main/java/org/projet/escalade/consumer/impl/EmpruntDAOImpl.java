@@ -7,6 +7,7 @@ import java.util.List;
 import org.projet.escalade.consumer.contract.EmpruntDAO;
 import org.projet.escalade.consumer.impl.rawmapper.EmpruntRawMapper;
 import org.projet.escalade.model.Emprunttopo;
+import org.projet.escalade.model.User;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -17,7 +18,7 @@ public class EmpruntDAOImpl extends AbstractDAO implements EmpruntDAO {
 
 	}
 
-	public List<Emprunttopo> getEmprunttopo() {
+	public List<Emprunttopo> getListEmprunttopo() {
 
 		String vSQL = "SELECT * FROM emprunt_topo";
 
@@ -44,5 +45,16 @@ public class EmpruntDAOImpl extends AbstractDAO implements EmpruntDAO {
 		} catch (DuplicateKeyException vEx) {
 
 		}
+	}
+
+	public List<Emprunttopo> getEmpruntByUser(User vUser) {
+
+		String vSQL = "SELECT FROM emprunt_topo WHERE id_user=" + vUser.getId();
+		
+		EmpruntRawMapper vRowMapper = new EmpruntRawMapper();
+		
+		List<Emprunttopo> emprunttopos = getJdbcTemplate().query(vSQL, vRowMapper);
+		
+		return emprunttopos;
 	}
 }
