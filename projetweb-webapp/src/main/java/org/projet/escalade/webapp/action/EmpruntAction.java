@@ -8,7 +8,6 @@ import org.apache.struts2.interceptor.SessionAware;
 import org.projet.escalade.model.Emprunttopo;
 import org.projet.escalade.model.Topos;
 import org.projet.escalade.model.User;
-import org.projet.escalade.model.exception.NotFoundException;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -22,12 +21,14 @@ public class EmpruntAction extends AbstractAction implements SessionAware {
 	private List<Topos> listTopos;
 	private Emprunttopo emprunttopo;
 	private String topoid;
+	private String toponame;
 	private String name;
 	private boolean empruntencours;
 	private Date datedebut;
 	private Date datefin;
 	private String id_topo;
 	private String id_user;
+	private boolean topodispo;
 	private Map<String, Object> session;
 
 	public List<Topos> getListTopos() {
@@ -93,24 +94,34 @@ public class EmpruntAction extends AbstractAction implements SessionAware {
 	public void setId_user(String id_user) {
 		this.id_user = id_user;
 	}
+	
+	public String getToponame() {
+		return toponame;
+	}
+	
+	public void setToponame(String toponame) {
+		this.toponame = toponame;
+	}
+	
+	public String getName() {
+		return name;
+	}
 
+	public void setName(String name) {
+		this.name = name;
+	}	
+	
 	public String execute() {
 
 		String vResult = ActionSupport.INPUT;
 		// Récupérer la liste des topos disponibles
-		listTopos = getManagerFactory().getToposManager().getListTopos();
+		//listTopos = getManagerFactory().getToposManager().getListTopos();
+		listTopos = getManagerFactory().getToposManager().getToposdisponible(topodispo);
 		emprunttopo = new Emprunttopo();
 		// Récupérer le nom de l'utilisateur
-		User vUser = getManagerFactory().getUserManager().getUser(name);
-		if (vUser == null) {
-			try {
-				throw new NotFoundException();
-			} catch (NotFoundException e) {
-				this.addActionError("Erreur");
-			}
-		}
-		this.session.get("user");
-		
+		User vUser = (User)this.session.get("user");
+		this.setName(vUser.getName());
+			
 		// Vérifier si le topo existe
 		if (this.topoid != null) {
 			try {				
@@ -118,20 +129,16 @@ public class EmpruntAction extends AbstractAction implements SessionAware {
 				this.emprunttopo.setDatedebut(datedebut);
 				this.emprunttopo.setDatefin(datefin);
 				this.emprunttopo.setTopos(getManagerFactory().getToposManager().getTopo(topoid));
-				
+			
 				vResult = ActionSupport.SUCCESS;
 			} catch (Exception e) {
 				this.addActionError("Erreur");
 			}
-		}
-		//sauvegarder l'emprunt
-		if (datedebut != null && datefin != null && id_topo != null && id_user != null) {
-			getManagerFactory().getEmpruntManager().AddEmprunt(datedebut, datefin, Integer.valueOf(id_topo), Integer.valueOf(id_user));
 		}
 		return vResult;
 	}
 
 	public void setSession(Map<String, Object> pSession) {
 		this.session = pSession;		
-	}	
+	}
 }
