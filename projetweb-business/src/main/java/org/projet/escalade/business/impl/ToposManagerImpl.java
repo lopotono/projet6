@@ -5,6 +5,7 @@ import java.util.List;
 import org.projet.escalade.business.contract.ToposManager;
 import org.projet.escalade.model.Sites;
 import org.projet.escalade.model.Topos;
+import org.projet.escalade.model.User;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.TransactionCallbackWithoutResult;
@@ -15,7 +16,11 @@ public class ToposManagerImpl extends AbstractManager implements ToposManager {
 	public List<Topos> getListTopos() {
 		return getDaoFactory().getTopoDao().getTopos();
 	}
-
+	
+	public List<Topos> getToposdisponible(boolean topodispo) {
+		return getDaoFactory().getTopoDao().getToposdisponible(topodispo);
+	}
+	
 	public Topos getTopo(int id) {
 		Topos vTopo = getDaoFactory().getTopoDao().getTopos(id);
 		List<Sites> vSite = getDaoFactory().getSitesDao().getSiteByTopos(vTopo);
@@ -57,6 +62,16 @@ public class ToposManagerImpl extends AbstractManager implements ToposManager {
 	}
 
 	public Topos getUser(String iduser) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Topos> getEmpruntByUser(User vUser) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Topos getToponame(String toponame) {
 		// TODO Auto-generated method stub
 		return null;
 	}
