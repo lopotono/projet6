@@ -17,15 +17,15 @@
 		<br />
 		<div class="container">
 			<div class="row">
-				<div>
+				<div class="col-sm-10">
 					<s:form method="post" action="emprunt">
 
 						<s:textfield name="datedebut"
-							placeholder="Date de début du prêt" requiredLabel="true"
-							class="form-control" />
+							placeholder="Date de début du prêt" requiredLabel="true" type="date"
+							 class="form-control" />
 
 						<s:textfield name="datefin"
-							placeholder="Date de fin du prêt" requiredLabel="true"
+							placeholder="Date de fin du prêt" requiredLabel="true" type="date"
 							class="form-control" />
 					
 						<s:textfield name="name" placeholder="Nom Utilisateur" requiredLabel="true" readonly="true" class="form-control" />
