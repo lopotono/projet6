@@ -26,6 +26,17 @@ public class TopoDAOImpl extends AbstractDAO implements TopoDAO {
 		
 		return vListTopos;		
 	}
+	
+	public List<Topos> getToposdisponible(boolean topodispo) {
+		
+		String vSQL = "SELECT * FROM topo WHERE topo_disponible="+topodispo;
+		
+		TopoRawMapper vRowMapper = new TopoRawMapper();
+		
+		List<Topos> vListTopos= getJdbcTemplate().query(vSQL, vRowMapper);
+				
+		return vListTopos;		
+	}
 
 	public Topos getTopos(int id) {
 		
@@ -52,7 +63,7 @@ public class TopoDAOImpl extends AbstractDAO implements TopoDAO {
 	public Topos getAddTopo(String name, Boolean dispo, int id) {
 		
 		String vSQL = "INSERT INTO topo (nom_topo, topo_disponible, id_user) VALUES ('"+ name +"',"+ dispo +","+ id +")";
-		System.out.println(vSQL);
+		
 		TopoRawMapper vRowMapper = new TopoRawMapper();
 		
 		List<Topos> topos= getJdbcTemplate().query(vSQL, vRowMapper);
@@ -87,5 +98,5 @@ public class TopoDAOImpl extends AbstractDAO implements TopoDAO {
 		} catch (DuplicateKeyException vEx) {
 			System.out.println("Le topo "+ name +" existe déjà !");
 		}
-	}				
+	}	
 }
