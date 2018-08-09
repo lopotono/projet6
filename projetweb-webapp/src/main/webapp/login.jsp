@@ -30,7 +30,7 @@
 								<div class="form-group">
 									<div class="col-md-8">								
 										<s:textfield name="name" requiredLabel="true"
-											class="form-control" placeholder="Votre nom" />
+											class="form-control" placeholder="Identifiant" />
 									</div>
 
 									<div class="form-group">
