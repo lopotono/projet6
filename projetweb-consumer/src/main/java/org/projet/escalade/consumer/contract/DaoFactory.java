@@ -9,4 +9,6 @@ public interface DaoFactory {
 	public VoieDAO getVoieDao();
 	public LongueurDAO getLongueurDao();
 	public PointsDAO getPointsDao();
+	public EmpruntDAO getEmpruntDao();
+	public CommentaireDAO getCommentaireDao();
 }
