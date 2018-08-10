@@ -21,7 +21,7 @@
 				<div class="main">
 					<div class="row">
 						<div class="col-xs-12 col-sm-6 col-sm-offset-1">
-						<h1>Ajouter un commentaire sur un site d'escalade</h1>
+							<h1>Ajouter un commentaire sur un site d'escalade</h1>
 							<s:form method="post" action="addcommentaire"
 								class="form-horizontal">
 
@@ -38,6 +38,14 @@
 											requiredLabel="true" cols="20" rows="5" class="form-control" />
 									</div>
 								</div>
+
+								<div class="form-group">
+									<div class="col-md-8">
+										<s:select name="idsite" list="listSites" listKey="sitesid"
+											listValue="name" class="form-control" />
+									</div>
+								</div>
+
 								<div class="form-group">
 									<div class="col-md-offset-0 col-md-8">
 										<s:submit value="ENVOYER" class="btn1 btn-success btn-lg" />
