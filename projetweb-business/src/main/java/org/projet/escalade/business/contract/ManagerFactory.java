@@ -2,7 +2,7 @@ package org.projet.escalade.business.contract;
 
 public interface ManagerFactory {
 
-    ToposManager getToposManager();
+	ToposManager getToposManager();
 
 	SitesManager getSitesManager();
 
@@ -17,4 +17,8 @@ public interface ManagerFactory {
 	LongueurManager getLongueurManager();
 	
 	PointsManager getPointsManager();
+
+	EmpruntManager getEmpruntManager();
+	
+	CommentaireManager getCommentaireManager();
 }
