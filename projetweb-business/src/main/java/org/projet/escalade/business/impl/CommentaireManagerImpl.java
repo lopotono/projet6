@@ -19,7 +19,7 @@ public class CommentaireManagerImpl extends AbstractManager implements Commentai
 	public List<Commentaire> getListCommentaire() {
 		return getDaoFactory().getCommentaireDao().getListCommentaire();
 	}
-
+	
 	@Transactional(value="txManagerSite")
 	public void AddCommentaire(final String name, final String contain, final String idsite) {
 		
@@ -37,6 +37,10 @@ public class CommentaireManagerImpl extends AbstractManager implements Commentai
 	}
 
 	public Commentaire getSites(String idsite) {
+		return null;
+	}
+
+	public Commentaire getCommentaire(int id) {
 		return null;
 	}
 }
