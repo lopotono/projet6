@@ -1,37 +1,41 @@
 package org.projet.escalade.model;
 
-import org.apache.commons.lang3.StringUtils;
-
 public class Commentaire {
 	
+	private int id;
 	private String name;
-
-	public Commentaire() {
-		
-	}
+	private String contain;
+	private Commentaire commentaire;
 	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getName() {
 		return name;
 	}
 
-	public void setname(String pName) {
-		name = pName;
+	public void setName(String name) {
+		this.name = name;
 	}
-	
-	public String toString() {
-		final StringBuilder vStB = new StringBuilder(this.getClass().getSimpleName());
-		vStB.append(" {")
-			.append("name=").append(name)
-			.append("}");
-		return vStB.toString();
+
+	public String getContain() {
+		return contain;
 	}
-	
-	public boolean equals(Object obj) {
-		return super.equals(obj)
-				|| (obj instanceof Commentaire && StringUtils.equals(((Commentaire) obj).getName(), name));
+
+	public void setContain(String contain) {
+		this.contain = contain;
 	}
-	
-	public int hashCode() {
-		return this.name != null ? this.name.hashCode() : super.hashCode();
+
+	public Commentaire getCommentaire() {
+		return commentaire;
+	}
+
+	public void setCommentaire(Commentaire commentaire) {
+		this.commentaire = commentaire;
 	}
 }
