@@ -9,28 +9,34 @@
 <link type="text/css" rel="stylesheet" href="style.css" />
 </head>
 <body>
-	<s:a action="sites_list" class="btn btn-primary btn-md pull-left">Retour liste</s:a>
-	<s:a action="index" class="btn btn-primary btn-md pull-left">Retour recherche</s:a>
+	
 	<div class="container">
-		<div class="jumbotron">
-			<h1>Détail du site d'escalade</h1>
+		<div class="jumbotron">			
+			<h2>
+				<center><span class="label label-success"><s:property
+						value="site.name" /></span></center>
+			</h2>
+			<s:a action="sites_list" class="btn btn-primary btn-md pull-left">Retour liste</s:a>
+			<s:a action="index" class="btn btn-primary btn-md pull-right">Retour recherche</s:a>
 			<br />
-			<h1>
-				<div class="panel-heading">
-					<span class="label label-success"><s:property
-							value="site.name" /></span>
-				</div>
-			</h1>
 			<br />
-			<div class="list-group-item">
+			<br />
+			<span class="label label-info">Commentaires sur le site</span>
+			<br />
+			<br />
 			<s:iterator value="site.commentaire">
-				<dt>
-					<s:property value="name" />
+			<div class="list">
+				<s:property value="name" />
+				<div class="list-group-item">
 					<s:property value="contain" />
-				</dt>
+				</div>
+				</div>
 			</s:iterator>
-			</div>
-
+			<br />
+			<br />
+			<span class="label label-info">Détail du site d'escalade</span>
+			<br />
+			<br />
 			<div class="list-group">
 				<s:iterator value="site.secteurs">
 
