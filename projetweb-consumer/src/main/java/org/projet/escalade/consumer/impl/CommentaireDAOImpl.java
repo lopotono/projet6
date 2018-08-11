@@ -40,8 +40,8 @@ public class CommentaireDAOImpl extends AbstractDAO implements CommentaireDAO {
 		String vSQL = "INSERT INTO commentaire (nom_commentaire, contenu, id_site_escalade) VALUES (:nom_commentaire,:contenu,:id_site_escalade)";
 		MapSqlParameterSource vParams = new MapSqlParameterSource();
 		vParams.addValue("nom_commentaire", name, Types.VARCHAR);
-		vParams.addValue("contenu", contain, Types.INTEGER);
-		vParams.addValue("id_site_escalade", idsite, Types.VARCHAR);
+		vParams.addValue("contenu", contain, Types.VARCHAR);
+		vParams.addValue("id_site_escalade", idsite, Types.INTEGER);
 		
 		NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
 			
