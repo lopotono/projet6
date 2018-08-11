@@ -9,36 +9,28 @@
 <link type="text/css" rel="stylesheet" href="style.css" />
 </head>
 <body>
+
 	<div class="container">
-		<nav class="navbar navbar-default navbar-fixed-top">
-		<div class="container-fluid">
-			<ul class="nav navbar-nav">
-				<li><s:a action="index" class="active">ACCUEIL</s:a></li>
-				<s:if test="#session.user">
-					<li><s:a action="topos_list">EMPRUNTER TOPO</s:a></li>
-					<li><s:a action="user_list">COORDONNEES UTILISATEURS</s:a></li>
-				</s:if>
-				<li><%@ include file="../_include/header.jsp"%></li>
-			</ul>
+		<div class="jumbotron">
+			<h1>Liste des sites d'escalade</h1>
+			<s:iterator value="listSites">
+				<div>
+					<div class="list-group">
+						<s:a action="site.action" class="list-group-item">
+							<result>
+							<h2>
+								<span class="label label-success"><s:property
+										value="name" /></span>
+							</h2>
+							<s:property value="description" /> <s:param name="id"
+								value="sitesid" /></result>
+						</s:a>							
+					</div>
+				</div>
+			</s:iterator>
+			
+			<s:a action="index" class="btn btn-primary btn-md pull-right">Retour accueil</s:a>
 		</div>
-		</nav>
 	</div>
-
-
-	<s:iterator value="listSites">
-		<div class="panel panel-info">
-			<div class="list-group">
-				<s:a action="site.action" class="list-group-item">
-					<result>
-					<h1>
-						<span class="label label-success"><s:property value="name" /></span>
-					</h1>
-					<s:property value="description" />
-					<s:param name="id" value="sitesid" /></result>
-				</s:a>
-				
-			</div>
-		</div>
-	</s:iterator>
 </body>
 </html>
