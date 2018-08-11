@@ -9,79 +9,65 @@
 <link type="text/css" rel="stylesheet" href="style.css" />
 </head>
 <body>
+	<s:a action="sites_list" class="btn btn-primary btn-md pull-left">Retour liste</s:a>
+	<s:a action="index" class="btn btn-primary btn-md pull-left">Retour recherche</s:a>
 	<div class="container">
-		<nav class="navbar navbar-default navbar-fixed-top">
-		<div class="container-fluid">
-			<ul class="nav navbar-nav">
-				<li><s:a action="index" class="active">ACCUEIL</s:a></li>
-				<s:if test="#session.user">
-					<li><s:a action="topos_list">EMPRUNTER TOPO</s:a></li>
-					<li><s:a action="user_list">COORDONNEES UTILISATEURS</s:a></li>
-				</s:if>
-				<li><%@ include file="../_include/header.jsp"%></li>
-			</ul>
-		</div>
-		</nav>
-	</div>
-	<br />
-
-	<h1>
-		<span class="label label-success"><s:property value="site.name" /></span>
-	</h1>
-	<s:iterator value="site.secteurs">
-		<div class="panel panel-info">
-			<div class="list-group">
-
+		<div class="jumbotron">
+			<h1>Détail du site d'escalade</h1>
+			<br />
+			<h1>
+				<div class="panel-heading">
+					<span class="label label-success"><s:property
+							value="site.name" /></span>
+				</div>
+			</h1>
+			<br />
+			<div class="list-group-item">
+			<s:iterator value="site.commentaire">
 				<dt>
-					Secteur :
 					<s:property value="name" />
+					<s:property value="contain" />
 				</dt>
-
+			</s:iterator>
 			</div>
-		</div>
 
-		<div class="panel panel-info">
 			<div class="list-group">
-				<s:iterator value="voie">
+				<s:iterator value="site.secteurs">
+
 					<dt>
-						Nom de la voie :
+						Secteur :
 						<s:property value="name" />
 					</dt>
-					<dt>
-						Hauteur de voie :
-						<s:property value="hauteur" />
-					</dt>
-					<dt>
-						Cotation de voie :
-						<s:property value="numerocotation" />
-					</dt>
+
+					<s:iterator value="voie">
+						<dt>
+							Nom de la voie :
+							<s:property value="name" />
+						</dt>
+						<dt>
+							Hauteur de voie :
+							<s:property value="hauteur" />
+						</dt>
+						<dt>
+							Cotation de voie :
+							<s:property value="numerocotation" />
+						</dt>
+						<s:iterator value="longueur">
+							<dt>
+								Nombre de longueur :
+								<s:property value="longueurnombre" />
+							</dt>
+							<s:iterator value="points">
+								<dt>
+									Nombre de points :
+									<s:property value="pointsnombre" />
+								</dt>
+							</s:iterator>
+						</s:iterator>
+					</s:iterator>
+				</s:iterator>
 			</div>
 		</div>
-
-
-		<div class="panel panel-info">
-			<div class="list-group">
-				<s:iterator value="longueur">
-					<dt>
-						Nombre de longueur :
-						<s:property value="longueurnombre" />
-					</dt>
-			</div>
-		</div>
-
-		<div class="panel panel-info">
-			<div class="list-group">
-
-				<s:iterator value="points">
-					<dt>
-						Nombre de points :
-						<s:property value="pointsnombre" />
-					</dt>
-			</div>
-		</div>
-	</s:iterator>
-	</s:iterator>
-	</s:iterator>
-	</s:iterator>
+	</div>
 </body>
 </html>
