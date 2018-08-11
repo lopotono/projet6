@@ -14,4 +14,6 @@ public interface CommentaireManager {
 	void AddCommentaire(String name, String contain, String idsite);
 
 	Commentaire getSites(String idsite);
+
+	Commentaire getCommentaire(int id);
 }
