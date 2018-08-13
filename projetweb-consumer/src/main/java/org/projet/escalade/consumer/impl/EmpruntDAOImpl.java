@@ -29,15 +29,16 @@ public class EmpruntDAOImpl extends AbstractDAO implements EmpruntDAO {
 		return vListEmprunttopo;
 	}
 
-	public void AddEmprunt(Date datedebut, Date datefin, int id_topo, int id_user) {
+	public void SaveEmprunt(Date datedebut, Date datefin, String vUser, String topoid) {
 
 		String vSQL = "INSERT INTO emprunt_topo (date_debut_emprunt, date_fin_emprunt, id_user, id_topo) VALUES (:date_debut_emprunt,:date_fin_emprunt,:id_user,:id_topo)";
+		System.out.println(vSQL);
 		MapSqlParameterSource vParams = new MapSqlParameterSource();
 		vParams.addValue("date_debut_emprunt", datedebut, Types.DATE);
 		vParams.addValue("date_fin_emprunt", datefin, Types.DATE);
-		vParams.addValue("id_user", id_user, Types.INTEGER);
-		vParams.addValue("id_topo", id_topo, Types.INTEGER);
-
+		vParams.addValue("id_user", vUser, Types.INTEGER);
+		vParams.addValue("id_topo", topoid, Types.INTEGER);
+		
 		NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
 
 		try {
@@ -56,5 +57,13 @@ public class EmpruntDAOImpl extends AbstractDAO implements EmpruntDAO {
 		List<Emprunttopo> emprunttopos = getJdbcTemplate().query(vSQL, vRowMapper);
 		
 		return emprunttopos;
+	}
+
+	public Emprunttopo getTopos(String id_topo) {
+		return null;
+	}
+
+	public Emprunttopo getUser(String vUser) {
+		return null;
 	}
 }
