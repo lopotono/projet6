@@ -1,58 +1,44 @@
 package org.projet.escalade.webapp.action;
 
 import java.util.List;
+import java.util.Map;
 
+import org.apache.struts2.interceptor.SessionAware;
 import org.projet.escalade.model.Emprunttopo;
-import org.projet.escalade.model.Topos;
+import org.projet.escalade.model.User;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class ListeEmpruntAction extends AbstractAction {
+public class ListeEmpruntAction extends AbstractAction implements SessionAware {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 5337233843745165375L;
 
-	private String empruntencours;
-	private List<Topos> listTopos;
-	private Emprunttopo emprunttopo;
-	private boolean listdispo;
 
-	public String getEmpruntencours() {
-		return empruntencours;
+	private List<Emprunttopo> listEmpruntTopos;
+	private Map<String, Object> session;
+
+	public Map<String, Object> getSession() {
+		return session;
 	}
 
-	public void setEmpruntencours(String empruntencours) {
-		this.empruntencours = empruntencours;
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
 	}
 
-	public List<Topos> getListTopos() {
-		return listTopos;
+	public List<Emprunttopo> getListEmpruntTopos() {
+		return listEmpruntTopos;
 	}
 
-	public void setListTopos(List<Topos> listTopos) {
-		this.listTopos = listTopos;
+	public void setListEmpruntTopos(List<Emprunttopo> listEmpruntTopos) {
+		this.listEmpruntTopos = listEmpruntTopos;
 	}
-
-	public Emprunttopo getEmprunttopo() {
-		return emprunttopo;
-	}
-
-	public void setEmprunttopo(Emprunttopo emprunttopo) {
-		this.emprunttopo = emprunttopo;
-	}
-
-	public boolean isListdispo() {
-		return listdispo;
-	}
-
-	public void setListdispo(boolean listdispo) {
-		this.listdispo = listdispo;
-	}
-
-	public String doEmprunt() {
-		listTopos = getManagerFactory().getToposManager().getListTopos();
+	
+	public String execute() {
+		User vUser = (User) this.session.get("user");
+		listEmpruntTopos = getManagerFactory().getEmpruntManager().getEmpruntByUser(vUser);
 		return ActionSupport.SUCCESS;		
 	}
 }
