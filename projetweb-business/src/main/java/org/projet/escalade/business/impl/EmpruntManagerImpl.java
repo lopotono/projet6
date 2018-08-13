@@ -14,11 +14,11 @@ import org.springframework.transaction.support.TransactionTemplate;
 public class EmpruntManagerImpl extends AbstractManager implements EmpruntManager {
 	
 	public List<Emprunttopo> getListEmprunttopo() {
-		return getDaoFactory().getEmpruntDao().getEmprunttopo();
+		return getDaoFactory().getEmpruntDao().getListEmprunttopo();
 	}
 
 	@Transactional(value = "txManagerSite")
-	public void AddEmprunt(final Date datedebut, final Date datefin, final int id_topo, final int id_user) {
+	public void SaveEmprunt(final Date datedebut, final Date datefin, final String userid, final String topoid) {
 
 		TransactionTemplate vTransactionTemplate = new TransactionTemplate(getPlatformTransactionManager());
 
@@ -27,12 +27,20 @@ public class EmpruntManagerImpl extends AbstractManager implements EmpruntManage
 			@Override
 			protected void doInTransactionWithoutResult(TransactionStatus status) {
 
-				getDaoFactory().getEmpruntDao().AddEmprunt(datedebut, datefin, id_topo, id_user);
+				getDaoFactory().getEmpruntDao().SaveEmprunt(datedebut, datefin, userid, topoid);
 			};
 		});
 	}
 
 	public List<Emprunttopo> getEmpruntByUser(User vUser) {
 		return getDaoFactory().getEmpruntDao().getEmpruntByUser(vUser);
+	}
+
+	public Emprunttopo getTopos(String id_topo) {
+		return getDaoFactory().getEmpruntDao().getTopos(id_topo);
+	}
+
+	public Emprunttopo getUser(String vUser) {
+		return getDaoFactory().getEmpruntDao().getUser(vUser);
 	}
 }
