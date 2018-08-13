@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 body {
-	background-image: url("ciel.jpg");
+	background-image: url("escaladeLog3.jpg");
 	height: 100%;
 	width: 100%;
 	background-size: cover;
@@ -13,8 +13,9 @@ body {
 .main {
 	background: white url(comment.png) right top no-repeat;
 	background-size: contain;
-	padding: 30px 40px 20px 5px;
-	margin-top: 100px;
+	padding: 5px 40px 20px 5px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 @media only screen and (max-width : 992px) {
@@ -46,10 +47,85 @@ form {
 	font-family: Montserrat, sans-serif;
 }
 
-.btn {
-	transition: all ease-in-out 0.2s;
+.list-group-item {
+	font-size: 2em;
 }
 
-textarea {
-	resize: none;
+.navbar-header {
+	font-size: 1.2em;
+}
+
+.image {
+	width: 100%;
+}
+
+.panel {
+	margin-left: 60px;
+	margin-right: 35%;
+}
+
+.panel-body {
+	font-size: 2.4em;
+	font-family: Verdana, "Times New Roman", Georgia, serif;
+	padding-left: 250px;
+	background-image: radial-gradient(circle at top left, white, green);
+}
+
+.btn1 {
+	width: 100%;
+	line-height: 60px;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+	font-family: Montserrat, sans-serif;
+	font-size: 2.2em;
+	margin: 0.5em;
+	margin-left: auto;
+    margin-right: auto;
+}
+
+.login_bg .form-control {
+	background: #fff;
+	padding: 20px;
+	border: 2px solid #000000;
+	color: #000000;
+	font-size: 1.6em;
+}
+
+.login_bg {
+	background: #ffffff36;
+	min-height: 150px;
+	margin-top: 5%;
+	border-radius: 10px;
+	box-shadow: 0px 0px 20px 0px #00000029;
+}
+
+.jumbotron {
+	background-image: radial-gradient(circle at top left, white, green);
+	color: #000000;
+	padding: 0.4em;
+	font-family: Montserrat, sans-serif;
+}
+
+.form-control {
+	font-size: 1.8em;
+	font-family: Montserrat, sans-serif;
+	height: 20%;
+	margin-bottom: 10px;
+}
+
+.list {
+	font-size: 1.8em;
+	font-family: Montserrat, sans-serif;	
+}
+.checkmark  {
+	position: relative;
+	height: 35px;
+	width: 35px;
+	background-color: #eee;
+}
+
+.label-info {
+	font-size: 2em;
+	font-family: Montserrat, sans-serif;
 }
