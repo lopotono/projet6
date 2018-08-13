@@ -10,7 +10,11 @@ public interface EmpruntDAO {
 	
 	List<Emprunttopo> getListEmprunttopo();
 
-	void AddEmprunt(Date datedebut, Date datefin, int id_topo, int id_user);
+	void SaveEmprunt(Date datedebut, Date datefin, String userid, String topoid);
 
 	List<Emprunttopo> getEmpruntByUser(User vUser);
+
+	Emprunttopo getTopos(String id_topo);
+
+	Emprunttopo getUser(String vUser);
 }
