@@ -1,6 +1,6 @@
 package org.projet.escalade.business.impl;
 
-import java.util.Date;
+import java.util.Calendar;
 import java.util.List;
 
 import org.projet.escalade.business.contract.EmpruntManager;
@@ -18,7 +18,7 @@ public class EmpruntManagerImpl extends AbstractManager implements EmpruntManage
 	}
 
 	@Transactional(value = "txManagerSite")
-	public void SaveEmprunt(final Date datedebut, final Date datefin, final String userid, final String topoid) {
+	public void SaveEmprunt(final Calendar datedebut, final Calendar datefin, final String userid, final String topoid) {
 
 		TransactionTemplate vTransactionTemplate = new TransactionTemplate(getPlatformTransactionManager());
 
