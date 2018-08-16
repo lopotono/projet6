@@ -1,6 +1,8 @@
 package org.projet.escalade.webapp.action;
 
-import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Map;
 
@@ -21,8 +23,8 @@ public class EmpruntAction extends AbstractAction implements SessionAware {
 	private List<Topos> listTopos;
 	private Emprunttopo emprunttopo;
 	private String topoid;
-	private Date datedebut;
-	private Date datefin;
+	private Calendar datedebut;
+	private Calendar datefin;
 	private boolean topodispo;
 	private String name;
 	private Map<String, Object> session;
@@ -50,22 +52,6 @@ public class EmpruntAction extends AbstractAction implements SessionAware {
 	public void setTopoid(String topoid) {
 		this.topoid = topoid;
 	}
-
-	public Date getDatedebut() {
-		return datedebut;
-	}
-
-	public void setDatedebut(Date datedebut) {
-		this.datedebut = datedebut;
-	}
-
-	public Date getDatefin() {
-		return datefin;
-	}
-
-	public void setDatefin(Date datefin) {
-		this.datefin = datefin;
-	}
 	
 	public String getName() {
 		return name;
@@ -74,7 +60,23 @@ public class EmpruntAction extends AbstractAction implements SessionAware {
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	
+	public Calendar getDatefin() {
+		return datefin;
+	}
+	
+	public void setDatefin(Calendar datefin) {
+		this.datefin = datefin;
+	}
+	
+	public Calendar getDatedebut() {
+		return datedebut;
+	}
+	
+	public void setDatedebut(Calendar datedebut) {
+		this.datedebut = datedebut;
+	}
+		
 	public String execute() {
 
 		String vResult = ActionSupport.INPUT;
@@ -85,8 +87,16 @@ public class EmpruntAction extends AbstractAction implements SessionAware {
 		User vUser = (User) this.session.get("user");
 		this.setName(vUser.getName());
 
-		// Calcul de la période de prêt
+		// La période de prêt
+		SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");	
+		Calendar datefin = Calendar.getInstance(); 						
+		datefin.add(Calendar.MONTH, 1);
+		Calendar datedebut = new GregorianCalendar();
+		System.out.println("Date : " + sdf.format(datefin.getTime()));
+		
+		// Récupérer les dates de début et de fin
 
+			
 		// Vérifier si le topo existe
 		if (this.topoid != null) {
 			try {
