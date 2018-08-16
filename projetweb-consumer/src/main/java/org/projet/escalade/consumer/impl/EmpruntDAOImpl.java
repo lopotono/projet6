@@ -1,7 +1,7 @@
 package org.projet.escalade.consumer.impl;
 
 import java.sql.Types;
-import java.util.Date;
+import java.util.Calendar;
 import java.util.List;
 
 import org.projet.escalade.consumer.contract.EmpruntDAO;
@@ -29,10 +29,10 @@ public class EmpruntDAOImpl extends AbstractDAO implements EmpruntDAO {
 		return vListEmprunttopo;
 	}
 
-	public void SaveEmprunt(Date datedebut, Date datefin, String vUser, String topoid) {
+	public void SaveEmprunt(Calendar datedebut, Calendar datefin, String vUser, String topoid) {
 
 		String vSQL = "INSERT INTO emprunt_topo (date_debut_emprunt, date_fin_emprunt, id_user, id_topo) VALUES (:date_debut_emprunt,:date_fin_emprunt,:id_user,:id_topo)";
-		System.out.println(vSQL);
+
 		MapSqlParameterSource vParams = new MapSqlParameterSource();
 		vParams.addValue("date_debut_emprunt", datedebut, Types.DATE);
 		vParams.addValue("date_fin_emprunt", datefin, Types.DATE);
@@ -50,8 +50,8 @@ public class EmpruntDAOImpl extends AbstractDAO implements EmpruntDAO {
 
 	public List<Emprunttopo> getEmpruntByUser(User vUser) {
 
-		String vSQL = "SELECT FROM emprunt_topo WHERE id_user=" + vUser.getId();
-		
+		String vSQL = "SELECT * FROM emprunt_topo WHERE id_user="+vUser.getId();
+					
 		EmpruntRawMapper vRowMapper = new EmpruntRawMapper();
 		
 		List<Emprunttopo> emprunttopos = getJdbcTemplate().query(vSQL, vRowMapper);
