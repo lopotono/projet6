@@ -184,14 +184,14 @@
 			method="execute">
 			<result name="input">topos/emprunt.jsp</result>
 			<!-- rediriger vers une action qui affiche la liste des emprunts des utilisateurs -->
-			<result name="success" type="redirectAction">listemprunt</result>
+			<result name="success" type="redirectAction">listeemprunt</result>
 		</action>
 		
 		<!-- Action liste emprunt topo -->
-		<action name="listemprunt"
+		<action name="listeemprunt"
 			class="org.projet.escalade.webapp.action.ListeEmpruntAction"
 			method="execute">
-			<result name="success">topos/emprunt.jsp</result>
+			<result name="success">topos/listemprunt.jsp</result>
 		</action>
 
 		<!-- Action ajouter site -->
