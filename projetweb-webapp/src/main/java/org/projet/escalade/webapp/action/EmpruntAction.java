@@ -1,6 +1,5 @@
 package org.projet.escalade.webapp.action;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -88,15 +87,10 @@ public class EmpruntAction extends AbstractAction implements SessionAware {
 		this.setName(vUser.getName());
 
 		// La période de prêt
-		SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");	
-		Calendar datefin = Calendar.getInstance(); 						
-		datefin.add(Calendar.MONTH, 1);
 		Calendar datedebut = new GregorianCalendar();
-		System.out.println("Date : " + sdf.format(datefin.getTime()));
+		Calendar datefin = Calendar.getInstance();
+		datefin.add(Calendar.MONTH, 1);
 		
-		// Récupérer les dates de début et de fin
-
-			
 		// Vérifier si le topo existe
 		if (this.topoid != null) {
 			try {
