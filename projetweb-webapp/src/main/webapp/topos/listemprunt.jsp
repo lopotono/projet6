@@ -7,22 +7,33 @@
 <%@ include file="../_include/head.jsp"%>
 <link type="text/css" rel="stylesheet" href="style2.css" />
 <link href="css/bootstrap.css" rel="stylesheet">
-
 <body>
-	<div class="panel panel-primary">
-	 <table class="table table-bordered">
-	  <caption>Liste des emprunts de topos de : <s:property value="#session.user.name" /></caption> 
-		<tr>
-			<th>Nom du topo</th>
-			<th>Date d'emprunt</th>
-			<th>Date de fin d'emprunt</th>
-		</tr>
-		<tr>
-			<td><s:property value="topoid" /></td>
-			<td><s:property value="datedebut" /></td>
-			<td><s:property value="datefin" /></td>
-		</tr>
-	</table>
+	<div class="container">
+		<table class="table table-striped">
+			<caption>
+				<p>
+					Liste des topos empruntés de :
+					<s:property value="#session.user.name" />
+				</p>
+			</caption>
+			<thead>
+				<tr>
+					<th>Nom du topo</th>
+					<th>Date d'emprunt</th>
+					<th>Date de fin d'emprunt</th>
+				</tr>
+			</thead>
+			<tbody>
+				<s:iterator value="listEmpruntTopos">
+					<tr>
+						<td><s:property value="toponame.toposname" /></td>
+
+						<td><s:property value="datedebut" /></td>
+						<td><s:property value="datefin" /></td>
+					</tr>
+				</s:iterator>
+			</tbody>
+		</table>
 	</div>
 </body>
 </html>
