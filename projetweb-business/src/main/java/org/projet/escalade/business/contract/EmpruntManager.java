@@ -11,10 +11,10 @@ public interface EmpruntManager {
 	List<Emprunttopo> getEmpruntByUser(User vUser);
 		
 	List<Emprunttopo> getListEmprunttopo();
-
-	Emprunttopo getTopos(String id);
+	
+	Emprunttopo getTopos(String topoid);
 
 	Emprunttopo getUser(String userid);
 
-	void SaveEmprunt(Calendar datedebut, Calendar datefin, String string, String topoid);
+	void SaveEmprunt(Calendar datedebut, Calendar datefin, String userid, String topoid);
 }
