@@ -10,7 +10,7 @@ public interface EmpruntDAO {
 	
 	List<Emprunttopo> getListEmprunttopo();
 
-	Emprunttopo getTopos(String id_topo);
+	Emprunttopo getTopos(String topoid);
 
 	Emprunttopo getUser(String vUser);
 
