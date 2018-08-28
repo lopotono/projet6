@@ -14,6 +14,8 @@ public interface VoieDAO {
 	List<Voie> getVoieBySecteur(Secteur vSecteur);
 
 	List<Voie> getSearchVoie(String name);
-
-	void AddVoie(int id, String name, int hauteur, int numero, int nbpoints, int id_secteur);
+	
+	void AddVoie(String name, int hauteur, int numero, int points, int idsecteur);
+	
+	Voie getSecteur(int idsecteur);
 }
