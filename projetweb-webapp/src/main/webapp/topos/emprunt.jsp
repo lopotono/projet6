@@ -10,34 +10,33 @@
 </head>
 <body>
 
+	<div class="main">
+		<div class="row">
+			<div class="col-xs-12">
+				<p>Le prêt de topo d'escalade est fixé pour une durée d'un mois à partir de la date en cours.</p>
+				<p>Le prêt de topo d'escalade est non renouvelable.</p>
+			</div>
+		</div>
+	</div>
 	<div class="jumbotron text-center">
 		<h1>Emprunt de topo d'escalade</h1>
-		<p>Remplir le formulaire d'emprunt</p>
-		<br />
-		<br />
+		<p>Choisir le topo dans la liste</p>
+		<br /> <br />
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-10">
 					<s:form method="post" action="emprunt">
 
-						<s:textfield name="datedebut"
-							placeholder="Date de début du prêt" requiredLabel="true" type="date"
-							 class="form-control" />
+						<s:textfield name="name" placeholder="Nom Utilisateur"
+							requiredLabel="true" readonly="true" class="form-control" />
 
-						<s:textfield name="datefin"
-							placeholder="Date de fin du prêt" requiredLabel="true" type="date"
-							class="form-control" />
-					
-						<s:textfield name="name" placeholder="Nom Utilisateur" requiredLabel="true" readonly="true" class="form-control" />
-						
 						<s:select name="topoid" list="listTopos" listKey="id"
 							listValue="toposname" />
 
 						<s:submit value="EMPRUNTER" class="btn1 btn-primary btn-lg" />
-						
-						<s:submit value="SAUVEGARDER" class="btn1 btn-primary btn-lg" />
 
 					</s:form>
+
 					<s:a action="index" class="btn btn-primary btn-md pull-left">Retour accueil</s:a>
 				</div>
 			</div>
