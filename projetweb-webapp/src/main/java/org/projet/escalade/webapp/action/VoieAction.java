@@ -20,6 +20,7 @@ public class VoieAction extends AbstractAction {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
 	public Voie getVoie() {
 		return voie;
 	}
