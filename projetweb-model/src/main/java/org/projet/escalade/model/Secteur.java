@@ -5,8 +5,9 @@ import java.util.List;
 public class Secteur {
 	
 	private int id;
-	private String secteurname;
+	private String name;
 	private List<Voie> voie;
+	private Secteur secteur;
 		
 	public int getSecteurid() {
 		return id;
@@ -16,12 +17,12 @@ public class Secteur {
 		this.id = id;
 	}
 
-	public String getSecteurname() {
-		return secteurname;
+	public String getName() {
+		return name;
 	}
 
-	public void setSecteurname(String secteurname) {
-		this.secteurname = secteurname;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public List<Voie> getVoie() {
@@ -30,5 +31,21 @@ public class Secteur {
 
 	public void setVoie(List<Voie> voie) {
 		this.voie = voie;
+	}
+
+	public Secteur getSecteur() {
+		return secteur;
+	}
+
+	public void setSecteur(Secteur secteur) {
+		this.secteur = secteur;
+	}
+	
+	public int getId() {
+		return id;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
 	}
 }
