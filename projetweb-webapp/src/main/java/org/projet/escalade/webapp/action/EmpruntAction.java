@@ -27,6 +27,7 @@ public class EmpruntAction extends AbstractAction implements SessionAware {
 	private boolean topodispo;
 	private String name;
 	private Map<String, Object> session;
+	private String toposname;
 
 	public List<Topos> getListTopos() {
 		return listTopos;
@@ -75,7 +76,15 @@ public class EmpruntAction extends AbstractAction implements SessionAware {
 	public void setDatedebut(Calendar datedebut) {
 		this.datedebut = datedebut;
 	}
-		
+	
+	public String getToposname() {
+		return toposname;
+	}
+	
+	public void setToposname(String toposname) {
+		this.toposname = toposname;
+	}
+				
 	public String execute() {
 
 		String vResult = ActionSupport.INPUT;
@@ -85,20 +94,18 @@ public class EmpruntAction extends AbstractAction implements SessionAware {
 		// Récupérer le nom de l'utilisateur
 		User vUser = (User) this.session.get("user");
 		this.setName(vUser.getName());
-
+							
 		// La période de prêt
 		Calendar datedebut = new GregorianCalendar();
 		Calendar datefin = Calendar.getInstance();
 		datefin.add(Calendar.MONTH, 1);
-		
+
 		// Vérifier si le topo existe
 		if (this.topoid != null) {
 			try {
 				this.emprunttopo = new Emprunttopo();
 				this.emprunttopo.setDatedebut(datedebut);
 				this.emprunttopo.setDatefin(datefin);
-				this.emprunttopo.setTopos(getManagerFactory().getToposManager().getTopo(topoid));
-				//this.emprunttopo.setName(vUser);
 				getManagerFactory().getEmpruntManager().SaveEmprunt(datedebut, datefin, vUser.getId().toString(), topoid);
 				vResult = ActionSupport.SUCCESS;
 			} catch (Exception e) {
@@ -110,5 +117,5 @@ public class EmpruntAction extends AbstractAction implements SessionAware {
 
 	public void setSession(Map<String, Object> pSession) {
 		this.session = pSession;
-	}	
+	}
 }
