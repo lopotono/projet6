@@ -5,9 +5,10 @@ import java.util.List;
 public class Voie {
 	
 	private int id;
-	private int voiehauteur;
-	private int voienumerocotation;
-	private int voienombrepoints;
+	private String name;
+	private int hauteur;
+	private int numerocotation;
+	private int nombrepoints;
 	private List<Longueur> longueur;
 		
 	public Voie() {
@@ -20,23 +21,37 @@ public class Voie {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Integer getVoiehauteur() {
-		return voiehauteur;
+	
+	public String getName() {
+		return name;
 	}
-	public void setVoiehauteur(Integer voiehauteur) {
-		this.voiehauteur = voiehauteur;
+
+	public void setName(String name) {
+		this.name = name;
 	}
-	public Integer getVoienumerocotation() {
-		return voienumerocotation;
+
+	public int getHauteur() {
+		return hauteur;
 	}
-	public void setVoienumerocotation(Integer voienumerocotation) {
-		this.voienumerocotation = voienumerocotation;
+
+	public void setHauteur(int hauteur) {
+		this.hauteur = hauteur;
 	}
-	public Integer getVoienombrepoints() {
-		return voienombrepoints;
+
+	public int getNumerocotation() {
+		return numerocotation;
 	}
-	public void setVoienombrepoints(Integer voienombrepoints) {
-		this.voienombrepoints = voienombrepoints;
+
+	public void setNumerocotation(int numerocotation) {
+		this.numerocotation = numerocotation;
+	}
+
+	public int getNombrepoints() {
+		return nombrepoints;
+	}
+
+	public void setNombrepoints(int nombrepoints) {
+		this.nombrepoints = nombrepoints;
 	}
 
 	public List<Longueur> getLongueur() {
@@ -45,5 +60,5 @@ public class Voie {
 
 	public void setLongueur(List<Longueur> longueur) {
 		this.longueur = longueur;
-	}
+	}	
 }
