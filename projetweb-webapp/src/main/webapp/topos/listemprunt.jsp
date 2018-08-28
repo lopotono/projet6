@@ -12,7 +12,7 @@
 		<table class="table table-striped">
 			<caption>
 				<p>
-					Liste des topos empruntés de :
+					LISTE DES TOPOS EMPRUNTÉS PAR
 					<s:property value="#session.user.name" />
 				</p>
 			</caption>
@@ -25,15 +25,16 @@
 			</thead>
 			<tbody>
 				<s:iterator value="listEmpruntTopos">
-					<tr>
+					<tr class="success">
 						<td><s:property value="toponame.toposname" /></td>
 
-						<td><s:property value="datedebut" /></td>
-						<td><s:property value="datefin" /></td>
+						<td><s:date name="datedebut" format="dd/MM/yyyy" /></td>
+						<td><s:date name="datefin" format="dd/MM/yyyy" /></td>
 					</tr>
 				</s:iterator>
 			</tbody>
 		</table>
+		<s:a action="index" class="btn btn-primary btn-md pull-left">Retour accueil</s:a>
 	</div>
 </body>
 </html>
