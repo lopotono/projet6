@@ -9,26 +9,34 @@
 <link type="text/css" rel="stylesheet" href="style.css" />
 </head>
 <body>
-	<s:a action="index" class="btn btn-primary btn-lg">Retour</s:a>
 
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-12 login_bg">
-				<s:form method="post" action="addvoie">
-					<s:textfield name="name" requiredLabel="true"
-						placeholder="Nom de la voie" class="form-control" />
+	<div class="jumbotron text-center">
+		<h1>Ajout de voie d'escalade</h1>
+		<p>Remplir le formulaire d'ajout</p>
 
-					<s:textfield name="hauteur" requiredLabel="true"
-						placeholder="Hauteur" class="form-control" />
+		<div class="container">
+			<div class="row">
+				<div>
+					<s:form method="post" action="addvoie">
+						<s:textfield name="name" requiredLabel="true"
+							placeholder="Nom de la voie" class="form-control" />
 
-					<s:textfield name="numero" requiredLabel="true"
-						placeholder="Numéro de cotation" class="form-control" />
+						<s:textfield name="hauteur" requiredLabel="true"
+							placeholder="Hauteur" class="form-control" />
 
-					<s:textfield name="id_secteur" requiredLabel="true"
-						placeholder="Numéro de secteur" class="form-control" />
+						<s:textfield name="numero" requiredLabel="true"
+							placeholder="Numéro de cotation" class="form-control" />
 
-					<s:submit value="Ajouter" class="btn1 btn-primary btn-lg" />
-				</s:form>
+						<s:textfield name="points" requiredLabel="true"
+							placeholder="Nombre de points" class="form-control" />
+
+						<s:select name="idsecteur" list="listSecteur" listKey="id"
+							listValue="name" />
+
+						<s:submit value="AJOUTER" class="btn1 btn-success btn-lg" />
+					</s:form>
+					<s:a action="index" class="btn btn-primary btn-md pull-left">Retour accueil</s:a>
+				</div>
 			</div>
 		</div>
 	</div>
