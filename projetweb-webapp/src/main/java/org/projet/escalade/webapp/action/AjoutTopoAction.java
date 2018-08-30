@@ -1,13 +1,15 @@
 package org.projet.escalade.webapp.action;
 
 import java.util.List;
+import java.util.Map;
 
+import org.apache.struts2.interceptor.SessionAware;
 import org.projet.escalade.model.Topos;
 import org.projet.escalade.model.User;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class AjoutTopoAction extends AbstractAction {
+public class AjoutTopoAction extends AbstractAction implements SessionAware {
 
 	/**
 	 * 
@@ -18,9 +20,12 @@ public class AjoutTopoAction extends AbstractAction {
 
 	private Topos ajouttopo;
 	private String name;
-	private Boolean dispo;
+	private String toposname;
+	private boolean dispo;
 	private String id;
-	private String iduser;
+	private Map<String, Object> session;
+	private List<Topos> listTopos;
+	private int topoid;
 
 	public List<User> getListUser() {
 		return listUser;
@@ -38,14 +43,6 @@ public class AjoutTopoAction extends AbstractAction {
 		this.name = name;
 	}
 
-	public Boolean getDispo() {
-		return dispo;
-	}
-
-	public void setDispo(Boolean dispo) {
-		this.dispo = dispo;
-	}
-
 	public String getId() {
 		return id;
 	}
@@ -53,7 +50,7 @@ public class AjoutTopoAction extends AbstractAction {
 	public void setId(String id) {
 		this.id = id;
 	}
-	
+
 	public Topos getAjouttopo() {
 		return ajouttopo;
 	}
@@ -62,16 +59,53 @@ public class AjoutTopoAction extends AbstractAction {
 		this.ajouttopo = ajouttopo;
 	}
 	
+	public String getToposname() {
+		return toposname;
+	}
+	
+	public void setToposname(String toposname) {
+		this.toposname = toposname;
+	}
+	
+	public List<Topos> getListTopos() {
+		return listTopos;
+	}
+	
+	public void setListTopos(List<Topos> listTopos) {
+		this.listTopos = listTopos;
+	}
+	
+	public boolean getDispo() {
+		return dispo;
+	}
+	
+	public void setDispo(boolean dispo) {
+		this.dispo = dispo;
+	}
+	
+	public int getTopoid() {
+		return topoid;
+	}
+	
+	public void setTopoid(int topoid) {
+		this.topoid = topoid;
+	}
 	
 	public String execute() {
-		
+
 		String result = ActionSupport.INPUT;
-		listUser = getManagerFactory().getUserManager().getListUser();
-		getManagerFactory().getToposManager().getUser(iduser);
-		if (name != null && dispo != null && id != null) {
-			getManagerFactory().getToposManager().AjoutTopo(name, dispo , iduser);
+		// Récupérer le nom de l'utilisateur
+		User vUser = (User) this.session.get("user");
+		this.setName(vUser.getName());
+				
+		if (toposname != null) {
+			getManagerFactory().getToposManager().AjoutTopo(toposname, dispo, vUser.getId().toString());
 			result = ActionSupport.SUCCESS;
 		}
 		return result;
+	}
+
+	public void setSession(Map<String, Object> pSession) {
+		this.session = pSession;
 	}
 }
