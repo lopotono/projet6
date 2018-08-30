@@ -297,6 +297,7 @@ select {
 	font-family: Montserrat, sans-serif;
 	padding: 0 10px 10px 40px;
 	color: #cc0000;
+	box-shadow: 2px 2px 12px #000000;
 }
 
 h1 {
