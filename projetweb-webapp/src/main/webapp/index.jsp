@@ -43,7 +43,8 @@
 	<div class="row">
 		<div class="col-sm-6 col-md-8">
 			<div class="thumbnail">
-				<h1>Rappel de vocabulaire</h1>
+				<h1>ESCALADE PASSION</h1>
+				<h3>Rappel de vocabulaire</h3>
 				<p>Un site ou spot, c’est un lieu où il est possible de grimper.</p>
 				<p>Les sites peuvent être découpés en plusieurs secteurs qui
 					regroupent un ensemble de voies.</p>
