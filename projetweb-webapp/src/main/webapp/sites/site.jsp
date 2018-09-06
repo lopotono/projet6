@@ -32,8 +32,10 @@
 
 					<s:iterator value="voie">
 						<dt>
-							Nom de la voie :
-							<s:property value="name" />
+							Voie :
+							<div class="voie">
+								<s:property value="name" />
+							</div>
 						</dt>
 						<dt>
 							Hauteur de voie :
@@ -43,25 +45,15 @@
 							Cotation de voie :
 							<s:property value="numerocotation" />
 						</dt>
-						<s:iterator value="longueur">
-							<dt>
-								Nombre de longueur :
-								<s:property value="longueurnombre" />
-							</dt>
-							<s:iterator value="points">
-								<dt>
-									Nombre de points :
-									<s:property value="pointsnombre" />
-								</dt>
-							</s:iterator>
-						</s:iterator>
+						<dt>
+							Nombre de points :
+							<s:property value="nombrepoints" />
+						</dt>
 					</s:iterator>
 				</s:iterator>
 			</div>
-			<br />
-			<br />
-			<span class="label label-info">Commentaires sur le site</span> <br />
-			<br />
+			<br /> <br /> <span class="label label-info">Commentaires
+				sur le site</span> <br /> <br />
 			<s:iterator value="site.commentaire">
 				<div class="list">
 					<s:property value="name" />
