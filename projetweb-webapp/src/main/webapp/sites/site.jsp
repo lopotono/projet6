@@ -26,7 +26,7 @@
 				<s:iterator value="site.secteurs">
 
 					<dt>
-						Secteur :
+						* Secteur * :
 						<s:property value="name" />
 					</dt>
 
@@ -49,6 +49,12 @@
 							Nombre de points :
 							<s:property value="nombrepoints" />
 						</dt>
+						<s:iterator value="longueur">
+							<dt>
+							Nombre de longueurs :
+							<s:property value="longueurnombre" />
+							</dt>
+						</s:iterator>
 					</s:iterator>
 				</s:iterator>
 			</div>
